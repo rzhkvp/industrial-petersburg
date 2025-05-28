@@ -1,21 +1,15 @@
-import webbrowser
-import sys
+import http.server
+import socketserver
+import os
 
-def open_in_github_dev(owner: str, repo: str, branch: str = "main") -> None:
-    """
-    Формирует ссылку для открытия файла index.html в github.dev (веб-редакторе).
-    """
-    # Формируем URL для открытия веб-редактора с файлом index.html
-    url = f"https://github.dev/{owner}/{repo}/blob/{branch}/index.html"
-    print(f"Opening GitHub.dev editor: {url}")
-    webbrowser.open_new_tab(url)
+PORT = 8000
 
-if __name__ == "__main__":
-    # Предполагаем, что запускают так: python open_github_dev.py <owner> <repo> [branch]
-    if len(sys.argv) not in (3, 4):
-        print("Использование: python open_github_dev.py <owner> <repo> [branch]")
-        sys.exit(1)
+# Меняем текущую директорию на ту, где лежит этот скрипт (чтобы index.html точно находился)
+script_dir = os.path.dirname(os.path.abspath(__file__))
+os.chdir(script_dir)
 
-    owner, repo = sys.argv[1], sys.argv[2]
-    branch = sys.argv[3] if len(sys.argv) == 4 else "main"
-    open_in_github_dev(owner, repo, branch)
+Handler = http.server.SimpleHTTPRequestHandler
+
+with socketserver.TCPServer(("", PORT), Handler) as httpd:
+    print(f"Сервер запущен. Перейдите по адресу:\n  http://localhost:{PORT}/index.html\n")
+    httpd.serve_forever()
