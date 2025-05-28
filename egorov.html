@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Вагоностроительный завод им. И.Е. Егорова | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/egorov_photos/egorov_header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Вагоностроительный завод им. И.Е. Егорова</h1>
+    <p>Исторический вагоностроительный завод Санкт-Петербурга</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Вагоностроительный завод им. И.Е. Егорова (бывший «завод Речкина») основан в 1874 году в Петербурге. За более чем столетнюю историю предприятие прошло путь от небольшого механического производства до одного из ведущих заводов по выпуску вагонов для метрополитена и железнодорожного пассажирского парка.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1874</strong> — Основание экипажной фабрики Дж. Смита; вскоре рядом появляется «завод Речкина» Ф.К. Ретшке.</div>
+        <div class="timeline-item"><strong>1893</strong> — Завод переходит к адвокатам-пруссакам Пастору и Эйлеру, начинается строительство каменных мастерских для чугунно-бронзолитейного и механического производств.</div>
+        <div class="timeline-item"><strong>1897</strong> — Учреждено АО «Товарищество Санкт-Петербургского вагоностроительного завода»; к 1898 году выпущен первый железнодорожный вагон.</div>
+        <div class="timeline-item"><strong>1899</strong> — Завершено строительство административного корпуса с высоким мансардным этажом (арх. Н.А. Архангельский).</div>
+        <div class="timeline-item"><strong>1912–1915</strong> — Под руководством инж. Г.Х. Розовского построены кузовной и малярный цеха с металлоконструкциями, «малярная» получила зубчатое перекрытие и гранёные башенки.</div>
+        <div class="timeline-item"><strong>1918</strong> — После национализации завод переименован в «Пятый механический и обозный».</div>
+        <div class="timeline-item"><strong>1922</strong> — Получил официальное имя «Вагоностроительный завод им. И.Е. Егорова».</div>
+        <div class="timeline-item"><strong>1937</strong> — Мягкий вагон завода награждён «Гран при» на Всемирной выставке в Париже.</div>
+        <div class="timeline-item"><strong>1940</strong> — Выпущен первый в стране цельнометаллический вагон.</div>
+        <div class="timeline-item"><strong>1941–1945</strong> — Завод полностью перешёл на выпуск военной продукции (снаряжение и боеприпасы).</div>
+        <div class="timeline-item"><strong>1946–1968</strong> — Поствоенный период: разработка и выпуск многочисленных типов пассажирских вагонов.</div>
+        <div class="timeline-item"><strong>1968</strong> — Начат серийный выпуск вагонов для петербургского метрополитена.</div>
+        <div class="timeline-item"><strong>1974</strong> — Завод награждён орденом Октябрьской Революции.</div>
+        <div class="timeline-item"><strong>2001</strong> — Комплекс зданий включён КГИОПом в «Список вновь выявленных объектов, представляющих историческую, научную, художественную или иную культурную ценность».</div>
+        <div class="timeline-item"><strong>2017</strong> — 11 мая открыт памятник погибшим в годы ВОВ сотрудникам завода («Вагонмаш») на Московском проспекте, 115.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Архитектура и сохранившиеся постройки</h2>
+      <div class="historical-fact">
+        <strong>Заводоуправление (арх. Н.А. Архангельский)</strong><br>
+        Краснокирпичное здание на углу Московского пр., 115 лит. А, с тремя арочными проездами и мансардой. Является региональным памятником (распоряжение КГИОП № 10-676 от 19.10.2011).
+      </div>
+      <div class="historical-fact">
+        <strong>Чугунно-бронзолитейный и механический цехи</strong><br>
+        Одноэтажные корпуса с центральным двухсветным нефом и верхним фонарным освещением; боковые обходные галереи обеспечивали технологичный поток материалов.
+      </div>
+      <div class="historical-fact">
+        <strong>Литейный цех (арх. В.В. Корвин-Круковский, 1902)</strong><br>
+        Трёхпролетное здание с выразительным кирпичным декором и вертикальными лопатками, придающими сооружению «стройность и устремлённость».
+      </div>
+      <div class="historical-fact">
+        <strong>Кузовной и малярный цеха (арх. Г.Х. Розовский, 1913–1915)</strong><br>
+        Одноэтажные постройки в несколько пролетов с металлоконструкциями. «Малярная» выделяется зубчатым перекрытием и гранёными башенками-лестничными клетками.
+      </div>
+      <p>Все перечисленные корпуса являются яркими примерами промышленной архитектуры рубежа XIX–XX веков и частично сохраняются до наших дней, привлекая внимание специалистов и историков.</p>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/egorov_photos/wagon_metro.jpg" alt="Вагон для метрополитена" />
+          <figcaption>Вагон для метрополитена (с 1968)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/egorov_photos/passenger_wagon.jpg" alt="Пассажирский вагон" />
+          <figcaption>Железнодорожный пассажирский вагон</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/egorov_photos/metal_casting.jpg" alt="Литейные изделия" />
+          <figcaption>Литейные изделия из чугуна и бронзы</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/egorov_photos/parts.jpg" alt="Запасные части" />
+          <figcaption>Запасные части для вагонов</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>Кузова вагонов для метрополитена (с 1968 г.)</li>
+        <li>Пассажирские железнодорожные вагоны различных типов</li>
+        <li>Литейные изделия из чугуна и бронзы (детали, корпуса)</li>
+        <li>Запасные части и комплектующие для подвижного состава</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/egorov_photos/egorov_now.jpg" alt="Современный вид завода" />
+          <figcaption>Современный вид территории завода</figcaption>
+        </figure>
+      </div>
+      <p>Адрес: <strong>Санкт-Петербург, Московский проспект, 115</strong></p>
+      <p>В последние десятилетия комплекс зданий испытывает упадок: многие корпуса обветшали, металлические конструкции требуют реставрации. Однако заводоуправление и малярная мастерская имеют охранный статус и включены в реестр объектов культурного наследия.</p>
+      <p>Комплекс малярной мастерской является памятником федерального значения, а административное здание завода (лит. А) — региональным памятником культуры Петербурга.</p>
+      <p>11 мая 2017 года на Московском проспекте, 115 было открыто мемориальное сооружение, посвящённое сотрудникам завода, погибшим в годы Великой Отечественной войны.</p>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
