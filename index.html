@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Индустриальный Петербург: от прошлого к настоящему</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Roboto', sans-serif; 
+      margin: 0; 
+      padding: 0; 
+      line-height: 1.6;
+      color: #333;
+    }
+    header { 
+      background: #2c3e50; 
+      color: white; 
+      padding: 2em 1em; 
+      text-align: center; 
+    }
+    h1 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin: 0;
+      font-size: 2.2em;
+    }
+    #map { 
+      height: 65vh;
+      border-top: 3px solid #e74c3c;
+      border-bottom: 3px solid #e74c3c;
+    }
+    .controls {
+      background: #ecf0f1;
+      padding: 1em;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+      align-items: center;
+    }
+    .year-control {
+      min-width: 300px;
+    }
+    .filter-control {
+      display: flex;
+      gap: 10px;
+    }
+    footer { 
+      background: #2c3e50; 
+      color: white;
+      text-align: center; 
+      padding: 1em;
+      font-size: 0.9em;
+    }
+    .factory-popup img {
+      max-width: 150px;
+      height: auto;
+      display: block;
+      margin: 5px auto;
+    }
+    .factory-popup a {
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .factory-popup a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Индустриальный Петербург: от прошлого к настоящему</h1>
+    <p>Исследуйте историю промышленных предприятий Санкт-Петербурга через интерактивную карту</p>
+  </header>
+
+  <div id="map"></div>
+  
+  <div class="controls">
+    <div class="year-control">
+      <label for="yearRange"><strong>Год: </strong><span id="yearLabel">1900</span></label><br>
+      <input type="range" id="yearRange" min="1700" max="2025" value="1900" step="5" style="width: 100%;">
+    </div>
+    
+    <div class="filter-control">
+      <strong>Фильтры: </strong>
+      <label><input type="checkbox" class="industry-filter" value="shipbuilding" checked> Судостроение</label>
+      <label><input type="checkbox" class="industry-filter" value="textile" checked> Текстиль</label>
+      <label><input type="checkbox" class="industry-filter" value="metal" checked> Металлургия</label>
+      <label><input type="checkbox" class="industry-filter" value="ceramics" checked> Керамика</label>
+
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // Инициализация карты
+    const map = L.map('map').setView([59.93, 30.3], 12);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+    }).addTo(map);
+
+    // Данные о заводах
+    const factories = [
+      {
+        name: 'Балтийский завод',
+        coords: [59.922, 30.244],
+        link: 'factories/baltiysky.html',
+        startYear: 1856,
+        endYear: null,
+        industry: 'shipbuilding',
+        description: 'Один из старейших судостроительных заводов России, основан в 1856 году.',
+        image: 'img/baltiysky.jpg'
+      },
+      {
+        name: 'Красный треугольник',
+        coords: [59.914, 30.295],
+        link: 'factories/krasny.html',
+        startYear: 1860,
+        endYear: 2004,
+        industry: 'textile',
+        description: 'Крупнейшее в России предприятие по производству резиновых изделий.',
+        image: 'img/krasny.jpg'
+      },
+      {
+        name: 'Путиловский завод',
+        coords: [59.901, 30.256],
+        link: 'factories/putilovsky.html',
+        startYear: 1801,
+        endYear: null,
+        industry: 'metal',
+        description: 'Основан как чугунолитейный завод, позднее - крупный машиностроительный комплекс.',
+        image: 'img/putilovsky.jpg'
+      },
+      {
+  name: 'Адмиралтейские верфи',
+  coords: [59.9295, 30.2910], // координаты приблизительно напротив Адмиралтейства
+  link: 'factories/admiralteyskie_verfi.html',
+  startYear: 1704,
+  endYear: null,
+  industry: 'shipbuilding',
+  description: 'Первое промышленное предприятие Санкт-Петербурга. Лидер в судостроении с 1704 года.',
+  image: 'img/admiralteyskie.jpg'
+},
+{
+  name: 'Императорский фарфоровый завод',
+  coords: [59.9348, 30.4481],  // приблизительные координаты рядом с ИФЗ
+  link: 'factories/imperatorsky_farforovy.html',
+  startYear: 1744,
+  endYear: null,
+  industry: 'ceramics',
+  description: 'Первый в России фарфоровый завод, основан в 1744 году. Производит художественный и костяной фарфор.',
+  image: 'img/farfor.jpg'
+},
+
+      {
+        name: 'Невская мануфактура',
+        coords: [59.928, 30.414],
+        link: 'factories/nevskaya.html',
+        startYear: 1841,
+        endYear: null,
+        industry: 'textile',
+        description: 'Одна из первых и крупнейших текстильных фабрик Российской империи.',
+        image: 'img/nevskaya.jpg'
+      },
+      {
+        name: 'Завод Чарльза Берда',
+        coords: [59.924190, 30.274204],
+        link: 'factories/berd.html',
+        startYear: 1792,
+        endYear: 1881,
+        industry: 'metal',
+        description: 'Первый в России частный механический и литейный завод. Производил паровые машины, пароходы, архитектурный декор.',
+        image: 'img/berd.jpg'
+      },
+      {
+        name: 'Обуховский завод',
+        coords: [59.863165, 30.475885],
+        link: 'factories/obuhovsky.html',
+        startYear: 1863,
+        endYear: null,
+        industry: 'metal',
+        description: 'Крупнейший сталелитейный завод России. Производил броню для кораблей, артиллерийские орудия.',
+        image: 'img/obuhovsky.jpg'
+      },
+      {
+        name: 'Александро-Невская мануфактура',
+        coords: [59.900601, 30.429577],
+        link: 'factories/an_manufaktura.html',
+        startYear: 1837,
+        endYear: 2003,
+        industry: 'textile',
+        description: 'Крупнейшее текстильное производство. Выпускало ситец, смесовые ткани.',
+        image: 'img/an_manufaktura.jpg'
+      }
+    ];
+
+    let currentMarkers = [];
+    let activeIndustries = ['shipbuilding', 'textile', 'metal'];
+
+    function updateMap(year) {
+      currentMarkers.forEach(m => map.removeLayer(m));
+      currentMarkers = [];
+
+      factories.forEach(factory => {
+        const yearActive = year >= factory.startYear && (factory.endYear === null || year <= factory.endYear);
+        const industryActive = activeIndustries.includes(factory.industry);
+        
+        if (yearActive && industryActive) {
+          const popupContent = `
+            <div class="factory-popup">
+              <h3>${factory.name}</h3>
+              ${factory.image ? `<img src="${factory.image}" alt="${factory.name}">` : ''}
+              <p>${factory.description}</p>
+              <p><strong>Годы работы:</strong> ${factory.startYear} — ${factory.endYear || 'н.в.'}</p>
+              <a href="${factory.link}">Подробнее →</a>
+            </div>
+          `;
+          
+          const marker = L.marker(factory.coords, {
+            icon: getIconForIndustry(factory.industry)
+          }).addTo(map)
+            .bindPopup(popupContent, {maxWidth: 300});
+          
+          currentMarkers.push(marker);
+        }
+      });
+    }
+
+    function getIconForIndustry(industry) {
+      const iconColors = {
+        'shipbuilding': 'blue',
+        'textile': 'red',
+        'metal': 'orange'
+      };
+      
+      return L.icon({
+        iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[industry] || 'grey'}.png`,
+        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+        iconSize: [25, 41],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+    }
+
+    const yearRange = document.getElementById('yearRange');
+    const yearLabel = document.getElementById('yearLabel');
+    const industryFilters = document.querySelectorAll('.industry-filter');
+
+    yearRange.addEventListener('input', () => {
+      const year = parseInt(yearRange.value);
+      yearLabel.textContent = year;
+      updateMap(year);
+    });
+
+    industryFilters.forEach(filter => {
+      filter.addEventListener('change', () => {
+        activeIndustries = Array.from(industryFilters)
+          .filter(f => f.checked)
+          .map(f => f.value);
+        updateMap(parseInt(yearRange.value));
+      });
+    });
+
+    updateMap(parseInt(yearRange.value));
+  </script>
+</body>
+</html>

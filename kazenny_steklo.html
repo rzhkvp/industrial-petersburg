@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Казённый стеклянный завод | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body { font-family: 'Roboto', sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
+    .factory-header { background: #444; color: white; padding: 4em 1em; text-align: center; }
+    h1, h2 { font-family: 'PT Sans Caption', sans-serif; }
+    .container { max-width: 800px; margin: 2em auto; padding: 0 1em; }
+    .back-link { display: inline-block; margin: 2em 0; color: #e74c3c; text-decoration: none; font-weight: bold; }
+    footer { background: #2c3e50; color: white; text-align: center; padding: 1em; margin-top: 2em; }
+    section { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+    section.visible { opacity: 1; transform: translateY(0); }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Казённый стеклянный завод</h1>
+    <p>Производитель художественного стекла для Императорского двора, основан в 1735 году</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <h2>История завода</h2>
+      <p>Казённый стеклянный завод был основан в Санкт-Петербурге в 1735 году. Первоначально он работал как частное предприятие, но уже в 1738 году перешёл в ведение казны и получил статус казённого. В 1792 году завод был официально переименован в Императорский стеклянный завод и стал выпускать стеклянные изделия для двора.</p>
+      <p>Завод находился в районе, известном как Стеклянный городок, и стал важной частью российской декоративно-прикладной промышленности XVIII–XIX веков.</p>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <ul>
+        <li>Столовая посуда из цветного и бесцветного хрусталя</li>
+        <li>Художественные декоративные вазы и настольные украшения</li>
+        <li>Изделия по индивидуальным заказам Императорского двора и частных лиц</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <p>К концу XIX века Казённый стеклянный завод был включён в состав Императорского фарфорового завода и прекратил существование как самостоятельное предприятие. Тем не менее, его художественное наследие сохранилось — изделия завода представлены в музеях и частных коллекциях.</p>
+    <p>Местоположение: Санкт-Петербург, Стеклянный городок</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+    
+  </footer>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+  </script>
+</body>
+</html>

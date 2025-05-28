@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Литейный двор | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/lit_dvor/liteiniy_dvor.jpeg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Литейный двор (1711–1851)</h1>
+    <p>Одно из крупнейших промышленных предприятий Петербурга XVIII века</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Литейный двор — крупнейшее производство артиллерии в Петербурге XVIII века, основанное по указу Петра I. Располагался на южном берегу Невы в районе начала Фонтанки. Здесь размещались литейный амбар, кузница, мастерские, а также рабочие слободы. Главная просека к Невскому проспекту стала основой Литейного проспекта. Первыми орудиями стали медные пушки, отлитые в 1713 году.</p>
+      
+      <h2>Хронология</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1711</strong> — Закладка Литейного двора на левом берегу Невы.</div>
+        <div class="timeline-item"><strong>1713</strong> — Первая плавка, отлиты первые медные пушки.</div>
+        <div class="timeline-item"><strong>1714</strong> — Официальное основание Арсенала, численность — 37 человек.</div>
+        <div class="timeline-item"><strong>1720</strong> — Численность рабочих увеличена до 200 человек.</div>
+        <div class="timeline-item"><strong>1732–1735</strong> — Постройка каменного Литейного дома с литейными печами.</div>
+        <div class="timeline-item"><strong>1776</strong> — Возведён трёхэтажный Главный Арсенал (Старый Арсенал).</div>
+        <div class="timeline-item"><strong>1798–1810</strong> — Построен Новый Арсенал (д. 3), архитектор Ф. И. Демерцов.</div>
+        <div class="timeline-item"><strong>1850–1851</strong> — Перенос производства на Выборгскую сторону, снос зданий.</div>
+        <div class="timeline-item"><strong>1933–1934</strong> — На месте Старого Арсенала построен «Большой дом».</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Изображения</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/lit_dvor/liteiniy_dvor.jpeg" alt="Литейный двор и Арсеналы" />
+          <figcaption>Литейный дом и арсеналы. Ф. Я. Алексеев, конец XVIII века</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lit_dvor/liteinyi.jpeg" alt="Гравюра 1815" />
+          <figcaption>Гравюра Морнея. Вид на Арсенал и Литейный двор, 1815</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lit_dvor/dvor.jpeg" alt="Гравюра 1820-х" />
+          <figcaption>Гравюра с карты Петербурга 1820–1825 годов</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lit_dvor/arsenal.jpeg" alt="Здание Нового Арсенала" />
+          <figcaption>Здание Нового Арсенала, Литейный пр., д. 3</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <p>Сегодня на месте Литейного двора и Старого Арсенала расположено здание, известное как «Большой дом». Производственные функции перенесены на завод «Арсенал» на Выборгской стороне. Об истории напоминают только сохранившиеся изображения и названия улиц.</p>
+      <p><strong>Адрес:</strong> Литейный проспект, 3 и 4, Санкт-Петербург</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+    <p>Адрес: Литейный проспект, 3 и 4, Санкт-Петербург</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      scrollBtn.style.display = (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) ? "block" : "none";
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
