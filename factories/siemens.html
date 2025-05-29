@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Электротехнический завод «Сименс-Гальске» | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/siemens_photos/old_.jpeg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 8px;
+      padding: 5px;
+      background: #f5f5f5;
+      border-radius: 0 0 5px 5px;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    .full-img-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .full-img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .close-full-img {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+    .img-caption {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Электротехнический завод «Сименс-Гальске» </h1>
+    <p>Позднее - завод «Севкабель». Первый кабельный завод России</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Основанный немецкой компанией Siemens & Halske в 1853 году, завод стал первым в России производителем телеграфного оборудования и кабельной продукции, сыграв ключевую роль в электрификации страны.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1853</strong> — Основание телеграфных мастерских Siemens & Halske в Петербурге под руководством Карла Сименса.</div>
+        <div class="timeline-item"><strong>1855</strong> — Успешная прокладка первого в мире подводного кабеля с резиновой изоляцией между Ораниенбаумом и Кронштадтом.</div>
+        <div class="timeline-item"><strong>1881</strong> — Преобразование в завод акционерного общества «Сименс и Гальске».</div>
+        <div class="timeline-item"><strong>1883</strong> — Замена газового освещения на электрическое на Невском проспекте.</div>
+        <div class="timeline-item"><strong>1898</strong> — Создание АО русских электротехнических заводов «Сименс и Гальске».</div>
+        <div class="timeline-item"><strong>1902</strong> — Начало промышленного производства радиотелеграфов системы А.С. Попова.</div>
+        <div class="timeline-item"><strong>1914</strong> — Переход завода в собственность государства с началом Первой мировой войны.</div>
+        <div class="timeline-item"><strong>1918</strong> — Национализация и переименование в «Севкабель».</div>
+        <div class="timeline-item"><strong>1920-е</strong> — Ключевая роль в реализации плана ГОЭЛРО.</div>
+        <div class="timeline-item"><strong>1941-1945</strong> — Производство кабелей для блокадного Ленинграда, включая прокладку по дну Ладожского озера.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Архитектурный комплекс и продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/siemens_photos/old_.jpeg" alt="Старое фото завода" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Завод «Сименс и Гальске» в конце XIX века</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/siemens_photos/fff.jpeg" alt="Еще одно старое фото завода" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Производственные корпуса завода</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/siemens_photos/now_.jpeg" alt="Современное фото завода" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Современный вид территории завода</figcaption>
+        </figure>
+      </div>
+      <div class="historical-fact">
+        <p>Завод производил: телеграфные аппараты, электрические кабели, лампы Эдисона, динамо-машины, электродвигатели, оборудование для трамваев, радиоаппаратуру и многое другое.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Карл Сименс (1829-1906)</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/siemens_photos/karl_siemens.jpeg" alt="Карл Сименс" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Карл Сименс - основатель завода</figcaption>
+        </figure>
+      </div>
+      <p>Младший брат Вернера Сименса, Карл принял российское гражданство и руководил предприятием с 1853 года. Под его руководством завод:</p>
+      <ul>
+        <li>Оборудовал телеграфную станцию в Зимнем дворце</li>
+        <li>Провел электрификацию Невского проспекта</li>
+        <li>Осуществил электрификацию Зимнего дворца по заказу Александра III</li>
+        <li>Получил право изображать императорский герб на продукции</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <p>Адрес: Санкт-Петербург, Кожевенная линия, 39-41 (Васильевский остров)</p>
+      <p>После национализации в 1918 году завод получил название «Севкабель» и продолжает работу как:</p>
+      <ul>
+        <li>ОАО «Севкабель» - производитель кабельно-проводниковой продукции</li>
+        <li>Часть территории преобразована в арт-пространство «Севкабель Порт»</li>
+      </ul>
+      <div class="historical-fact">
+        <p>В 2010-х годах основное производство было перенесено в Псковскую область, а исторические здания на Васильевском острове получили новое культурное назначение.</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="fullImgContainer" class="full-img-container">
+    <span class="close-full-img" onclick="hideFullImg()">&times;</span>
+    <img id="fullImg" class="full-img" src="" alt="">
+    <div id="fullImgCaption" class="img-caption"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+
+    function showFullImg(src, alt) {
+      const fullImgContainer = document.getElementById('fullImgContainer');
+      const fullImg = document.getElementById('fullImg');
+      const fullImgCaption = document.getElementById('fullImgCaption');
+      
+      fullImg.src = src;
+      fullImg.alt = alt;
+      fullImgCaption.textContent = alt;
+      fullImgContainer.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideFullImg() {
+      document.getElementById('fullImgContainer').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('fullImgContainer').addEventListener('click', function(e) {
+      if (e.target === this) {
+        hideFullImg();
+      }
+    });
+  </script>
+</body>
+</html>
