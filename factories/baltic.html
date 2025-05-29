@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Балтийский завод | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/baltic_photos/panorama.jpeg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 20px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+    .gallery img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      border-radius: 5px;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
+    .gallery img:hover {
+      transform: scale(1.02);
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 8px;
+      padding: 5px;
+      background: #f5f5f5;
+      border-radius: 0 0 5px 5px;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    .full-img-container {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    .full-img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+    }
+    .close-full-img {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 40px;
+      cursor: pointer;
+    }
+    .img-caption {
+      position: absolute;
+      bottom: 20px;
+      color: white;
+      text-align: center;
+      width: 100%;
+      padding: 10px;
+      background: rgba(0,0,0,0.5);
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Балтийский завод </h1>
+    <p>Флагман отечественного кораблестроения</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Основанный в 1856 году, Балтийский завод стал ведущим предприятием российского судостроения, создавшим множество инновационных кораблей и судов, включая первые российские дредноуты и атомные ледоколы.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1856</strong> — Основание завода купцом М.Е. Карром и инженером М.Л. Макферсоном.</div>
+        <div class="timeline-item"><strong>1862</strong> — Постройка первого отечественного металлического корабля «Опыт».</div>
+        <div class="timeline-item"><strong>1866</strong> — Создание подводной лодки И. Александровского.</div>
+        <div class="timeline-item"><strong>1900-е</strong> — Постройка первых российских дредноутов «Петропавловск» и «Севастополь».</div>
+        <div class="timeline-item"><strong>1930-е</strong> — Строительство подводных лодок типа «Декабрист».</div>
+        <div class="timeline-item"><strong>1941-1945</strong> — Производство боеприпасов и ремонт кораблей для фронта.</div>
+        <div class="timeline-item"><strong>1977</strong> — Атомный ледокол «Арктика» достигает Северного полюса.</div>
+        <div class="timeline-item"><strong>1998</strong> — Завершение строительства атомного крейсера «Пётр Великий».</div>
+        <div class="timeline-item"><strong>2000-е</strong> — Строительство ледоколов «50 лет Победы», «Арктика», «Сибирь».</div>
+        <div class="timeline-item"><strong>2019</strong> — Ввод в эксплуатацию плавучей АЭС «Академик Ломоносов».</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Знаковые проекты</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/baltic_photos/spysk.jpeg" alt="Спуск броненосца «Победа»" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Спуск броненосца «Победа» (1900)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/baltic_photos/ledokol.jpeg" alt="Атомный ледокол «Арктика»" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Ледокол «Арктика» у Северного полюса</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/baltic_photos/golov.jpeg" alt="Ледокол «Арктика» на испытаниях" onclick="showFullImg(this.src, this.alt)" />
+          <figcaption>Ледокол «Арктика» на испытаниях (2019)</figcaption>
+        </figure>
+      </div>
+      <div class="historical-fact">
+        <p>Завод построил около 600 кораблей, включая первые российские металлические суда, дредноуты, атомные ледоколы и единственную в мире плавучую АЭС.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Основные достижения</h2>
+      <ul>
+        <li>Первая российская подводная лодка (1866)</li>
+        <li>Первые российские дредноуты (1910-е)</li>
+        <li>Первая в мире плавучая АЭС (2019)</li>
+        <li>Самый мощный атомный ледокол «50 лет Победы»</li>
+        <li>Атомные крейсера проекта «Орлан»</li>
+        <li>Серия универсальных атомных ледоколов проекта 22220</li>
+      </ul>
+      <div class="historical-fact">
+        <p>В 1977 году атомный ледокол «Арктика», построенный на заводе, впервые в истории достиг Северного полюса в надводном плавании.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Современное производство</h2>
+      <p>Адрес: Санкт-Петербург, Косая линия, 16</p>
+      <p>Основные направления:</p>
+      <ul>
+        <li>Атомные ледоколы (проект 22220)</li>
+        <li>Плавучие атомные электростанции</li>
+        <li>Военные корабли специального назначения</li>
+        <li>Гражданские суда ледового класса</li>
+      </ul>
+      <div class="historical-fact">
+        <p>Сегодня завод строит новое поколение атомных ледоколов: «Сибирь», «Урал», «Якутия», «Чукотка» и «Ленинград».</p>
+      </div>
+    </section>
+  </div>
+
+  <div id="fullImgContainer" class="full-img-container">
+    <span class="close-full-img" onclick="hideFullImg()">&times;</span>
+    <img id="fullImg" class="full-img" src="" alt="">
+    <div id="fullImgCaption" class="img-caption"></div>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+
+    function showFullImg(src, alt) {
+      const fullImgContainer = document.getElementById('fullImgContainer');
+      const fullImg = document.getElementById('fullImg');
+      const fullImgCaption = document.getElementById('fullImgCaption');
+      
+      fullImg.src = src;
+      fullImg.alt = alt;
+      fullImgCaption.textContent = alt;
+      fullImgContainer.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+    }
+
+    function hideFullImg() {
+      document.getElementById('fullImgContainer').style.display = 'none';
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('fullImgContainer').addEventListener('click', function(e) {
+      if (e.target === this) {
+        hideFullImg();
+      }
+    });
+  </script>
+</body>
+</html>
