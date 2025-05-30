@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Машиностроительный завод «Арсенал» | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/arsenal_photos/arsenal_header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Машиностроительный завод «Арсенал»</h1>
+    <p>Одно из старейших артиллерийских и машиностроительных предприятий Санкт-Петербурга</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Машиностроительный завод «Арсенал» (ранее Пушечный литейный двор, государственный механический артиллерийский завод «Красный Арсенал») основан в 1711 году по указу Петра I. Сегодня входит в госкорпорацию «Роскосмос» и специализируется на оборонной, космической и кораблестроительной продукции.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1711</strong> — По указу Петра I учреждён Пушечный литейный двор в Санкт-Петербурге.</div>
+        <div class="timeline-item"><strong>1850–1851</strong> — Литейный двор с арсеналом переведён с Литейного проспекта в новые корпуса на Выборгской стороне.</div>
+        <div class="timeline-item"><strong>1871–1900</strong> — Завод изготовил 3300 орудий, 1100 лафетов, 2400 передков, 1500 зарядных ящиков, 25 000 колёс и 74 000 принадлежностей; в 1882 г. часть мощностей перепрофилирована на гражданскую продукцию.</div>
+        <div class="timeline-item"><strong>1897</strong> — Начата модернизация: перевод оборудования на электрический привод.</div>
+        <div class="timeline-item"><strong>1914–1916</strong> — Полный переход на выпуск артиллерии и её ремонта во время Первой мировой войны.</div>
+        <div class="timeline-item"><strong>1917–1918</strong> — После Октябрьской революции завод переименован в Государственный механический артиллерийский завод «Красный Арсенал».</div>
+        <div class="timeline-item"><strong>1931</strong> — Освоено производство миномётов различных калибров; под руководством Б. И. Шавырина разрабатываются основные типы советских миномётов.</div>
+        <div class="timeline-item"><strong>1940</strong> — Предприятие получает имя Машиностроительный завод «Арсенал» им. М. В. Фрунзе.</div>
+        <div class="timeline-item"><strong>1941</strong> — Начало эвакуации продукции и персонала в Омск с началом Великой Отечественной войны; оборонные цеха завода продолжают выпуск 45-мм противотанковых пушек, полковых миномётов, пистолет-пулемётов ППД.</div>
+        <div class="timeline-item"><strong>1942</strong> — Завод награждён орденом Трудового Красного Знамени.</div>
+        <div class="timeline-item"><strong>1943</strong> — Начато производство 100-мм противотанковой пушки БС-3 после прорыва блокады Ленинграда.</div>
+        <div class="timeline-item"><strong>1949</strong> — На базе завода образовано Центральное конструкторское бюро № 7 для проекта морской автоматической зенитной артиллерии.</div>
+        <div class="timeline-item"><strong>1953</strong> — Перевод завода в ведение Министерства оборонной промышленности СССР.</div>
+        <div class="timeline-item"><strong>1990-е</strong> — Завод акционирован, производство частично перепрофилировано.</div>
+        <div class="timeline-item"><strong>2021</strong> — На территории бывших корпусов XIX века (Арсенальная наб., 1) открылось арт-пространство Temple of Deer; запущено производство судового машиностроения (краны, лебёдки, шпили).</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Архитектура и расположение</h2>
+      <div class="historical-fact">
+        <strong>Адрес:</strong> Арсенальная набережная, 1, Калининский район, Санкт-Петербург.
+      </div>
+      <div class="historical-fact">
+        <strong>Расположение</strong><br>
+        Завод занимает большую часть Выборгской стороны, выходя на Неву. Некоторые корпуса XIX века сохранились и используются для складов, а береговая линия частично оборудована глубоководными причалами.
+      </div>
+      <p>Территория бывшего Пушечного литейного двора сочетает исторические корпуса с современными цехами, часть площадей не используется и постепенно реставрируется.</p>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/arsenal_photos/naval_gun.jpg" alt="Корабельная артиллерийская установка" />
+          <figcaption>Корабельная автоматическая артиллерийская установка</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/arsenal_photos/rocket_engine.jpg" alt="Ракетный двигатель" />
+          <figcaption>Ракетный двигатель твердого топлива</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/arsenal_photos/spacecraft.jpg" alt="Космический аппарат" />
+          <figcaption>Космический аппарат для радиофизических исследований</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/arsenal_photos/ship_crane.jpg" alt="Судовой кран" />
+          <figcaption>Судовой кран-балка (производство с 2021 г.)</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>Корабельные автоматические артиллерийские и пусковые установки (АК-725, АК-100, АК-130, ЗИФ-75 и др.)</li>
+        <li>Ракетные двигатели на твердом топливе, баллистические ракеты (РТ-15, РТ-2П, Р-31)</li>
+        <li>Космическая техника и аппараты (утилитарные спутники «Ресурс-П», «Кобальт», «Топаз» и др.)</li>
+        <li>Судовые краны, лебёдки и кран-балки, якорно-швартовные шпили (с 2021 г.)</li>
+        <li>Электрогидравлические цифровые рулевые приводы для РД-180 (используются на американских ракетоносителях)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/arsenal_photos/arsenal_now.jpg" alt="Современный вид завода Арсенал" />
+          <figcaption>Современный вид завода «Арсенал»</figcaption>
+        </figure>
+      </div>
+      <p>Сегодня ОАО «Машиностроительный завод „Арсенал“» является ведущим предприятием госкорпорации «Роскосмос» в области оборонной и космической техники. Завод участвует в разработке и производстве вооружений для ВМФ России, экспортирует продукцию в Индию, Китай, Вьетнам и др.</p>
+      <p>Из-за вторжения России на Украину предприятие находится под санкциями Евросоюза, США, Великобритании и других стран.</p>
+    </section>
+
+    <section>
+      <h2>Факты и достижения</h2>
+      <ul>
+        <li>Основан в 1711 г. при Петре I как Пушечный литейный двор.</li>
+        <li>В 1942 г. награждён орденом Трудового Красного Знамени за вклад в произ-водство оборонной продукции.</li>
+        <li>С 1950-х гг. завод разрабатывал и выпускал миномёты, артиллерийские установки и боеприпасы.</li>
+        <li>С 2021 г. открыто арт-пространство Temple of Deer в бывших корпусах XIX века.</li>
+        <li>Производитель ключевых компонентов для ракет РД-180 — единственной российской разработки, сертифицированной для американских ракетоносителей серии Atlas.</li>
+        <li>Поставляет корабельную артиллерию и пусковые установки более чем на половину российского военного флота.</li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
