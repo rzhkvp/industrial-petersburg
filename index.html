@@ -129,6 +129,7 @@
 <label><input type="checkbox" class="industry-filter" value="optics" checked> Оптико-механическая</label>
 <label><input type="checkbox" class="industry-filter" value="weapons" checked> Вооружение</label>
 <label><input type="checkbox" class="industry-filter" value="mint" checked> Чеканка монет</label>
+      <label><input type="checkbox" class="industry-filter" value="glass" checked> Стекольное производство</label>
     </div>
   </div>
 
@@ -706,7 +707,8 @@ let activeIndustries = [
   'optics',             // оптико-механическая
   'weapons',             // вооружение
   'mint',
-  'ceramics'
+  'ceramics',
+  'glass'
 ];
 
 function updateMap(year) {
@@ -750,8 +752,9 @@ function getIconForIndustry(industry) {
     'printing': 'black',
     'optics': 'black',
     'weapons': 'blue',
-    'mint': 'yellow'
-    'ceramics' : 'violet' 
+    'mint': 'yellow',
+    'ceramics' : 'violet',
+     'glass': 'purple'
   };
   return L.icon({
     iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[industry] || 'grey'}.png`,
