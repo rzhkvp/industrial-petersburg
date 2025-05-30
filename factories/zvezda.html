@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Завод «Звезда» | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/zvezda_photos/zvezda_header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Завод «Звезда»</h1>
+    <p>Производитель дизельных двигателей многоцелевого назначения</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>ПАО «Звезда» образован в 1932 г. на базе опытного производства завода «Большевик» (ныне Обуховский завод), где выпускались лёгкие танки. После эвакуации в 1941–1942 гг. завод производил Т-50. С апреля 1945 г. начат выпуск высокооборотных дизелей. С 1957 г. двигатели «Звезды» устанавливались на суда «Ракета», «Комета», «Полесье». В 1984 г. начались поставки М756Б для автомотрис АЧ2 (Чехословакия). Около 90 % скоростных кораблей ВМФ и погранвойск РФ используют дизели «Звезды». С 2022 г. завод под санкциями ЕС, США, Великобритании, Японии и других стран из-за вторжения России на Украину :contentReference[oaicite:1]{index=1}.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1932</strong> — На базе опытного производства «Большевика» создан Ленинградский машиностроительный завод им. К. Е. Ворошилова (ныне ПАО «Звезда») :contentReference[oaicite:2]{index=2}.</div>
+        <div class="timeline-item"><strong>1941–1942</strong> — Завод выпускает лёгкие танки Т-50, затем эвакуируется и продолжает производство в тылу.</div>
+        <div class="timeline-item"><strong>Апрель 1945</strong> — Начат серийный выпуск высокооборотных дизелей для военно-морских нужд :contentReference[oaicite:3]{index=3}.</div>
+        <div class="timeline-item"><strong>1957</strong> — Первое судно «Ракета» (завод «Красное Сормово») оснащено дизелем М50Ф от «Звезды»; далее — «Восход», «Комета», «Полесье» :contentReference[oaicite:4]{index=4}.</div>
+        <div class="timeline-item"><strong>1984</strong> — Поставки дизелей М756Б на «Вагонка-Студенка» (Чехословакия) для автомотрис АЧ2; доля двигателей «Звезды» на кораблях ВМФ и погранвойск РФ около 90 % :contentReference[oaicite:5]{index=5}.</div>
+        <div class="timeline-item"><strong>2022</strong> — Под международными санкциями 27 стран (ЕС, США, Великобритания, Япония и др.) из-за вторжения РФ на Украину :contentReference[oaicite:6]{index=6}.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/zvezda_photos/zvezda_engine.jpg" alt="Дизельный двигатель «Звезда»" />
+          <figcaption>Дизель M50F (1945 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/zvezda_photos/zvezda_boat.jpg" alt="Судно «Ракета» с двигателем «Звезды»" />
+          <figcaption>Судно «Ракета» (1957), двигатель М50Ф</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/zvezda_photos/zvezda_train_engine.jpg" alt="Дизель M756B для автомотрис" />
+          <figcaption>Дизель M756B для автомотрис АЧ2 (Чехословакия, 1984)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/zvezda_photos/zvezda_modern.jpg" alt="Современный дизельный цех «Звезды»" />
+          <figcaption>Современный дизельный цех</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li><strong>Высокоборотные дизели M-50F</strong> для речных и морских судов (с 1945 г.)</li>
+        <li><strong>Дизели M-756B</strong> для автомотрис АЧ2 (Чехословакия, с 1984 г.)</li>
+        <li><strong>Дизели для кораблей ВМФ и погранслужбы</strong> (около 90 % флота РФ)</li>
+        <li><strong>Современные многоцелевые дизели</strong> для морских и промышленных установок</li>
+        <li><strong>Запчасти и комплектующие</strong> для дизель-генераторов и судовых движителей</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Известные личности завода</h2>
+      <ul>
+        <li><strong>Калашников, Михаил Т.</strong> (1919–2013) — инженер-конструктор, создатель автомата АК. Работал на «Звезде» и в 1958 г. удостоен звания Героя Социалистического Труда за работу над танковым оружием :contentReference[oaicite:7]{index=7}.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <div class="historical-fact">
+        <strong>Адрес:</strong> 192012, Санкт-Петербург, ул. Бабушкина, д. 123 :contentReference[oaicite:8]{index=8}.
+      </div>
+      <p>ПАО «Звезда» продолжает выпуск дизельных двигателей общего назначения для флота и промышленности. Комплекс находится под международными санкциями из-за событий 2022 г. Приёмная генерального директора: +7 (812) 362-07-47, факс +7 (812) 367-37-76, e-mail: office@zvezda.spb.ru :contentReference[oaicite:9]{index=9}.</p>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
