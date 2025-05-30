@@ -284,7 +284,7 @@
   link: 'factories/lmz.html',
   startYear: 1857,
   endYear: null,
-  industry: 'машиностроение и энергетика',
+  industry: 'machinery',
   description: 'Советское и российское энергомашиностроительное предприятие, проектирует и выпускает паровые, гидравлические и газовые турбины. Основан как «Компания Санкт-Петербургского металлического завода» в 1857 г. и вошёл в состав АО «Силовые машины».',
   image: 'img/lmz_photos/lmz_header.jpg'
 },
@@ -350,7 +350,7 @@
   link: 'factories/kirov.html',
   startYear: 1801,
   endYear: null,
-  industry: 'машиностроение и металлургия',
+  industry: 'machinery',
   description: 'Одно из старейших машиностроительных и металлургических предприятий России, расположенное между проспектом Стачек и рекой Екатерингофкой.',
   image: 'img/kirov_photos/kirov_header.jpg'
 },
@@ -361,7 +361,7 @@
   link: 'factories/arsenal.html',
   startYear: 1711,
   endYear: null,
-  industry: 'машиностроение',
+  industry: 'machinery',
   description: 'ОАО «Машиностроительный завод „Арсенал“» — российское промышленное предприятие в Калининском районе, входит в госкорпорацию „Роскосмос“; основан в 1711 году как Пушечный литейный двор.',
   image: 'img/arsenal_photos/arsenal_header.jpg'
 },
@@ -372,7 +372,7 @@
   link: 'factories/lomo.html',
   startYear: 1914,
   endYear: null,
-  industry: 'оптика и приборостроение',
+  industry: 'optics',
   description: 'Российская компания по производству и реализации оптико-механических и оптоэлектронных приборов, ведёт историю с 1914 г. В мае 2024 г. вошла в концерн «Калашников».',
   image: 'img/lomo_photos/lomo_header.jpg'
 },
@@ -383,7 +383,7 @@
   link: 'factories/svetlana.html',
   startYear: 1913,
   endYear: null,
-  industry: 'радиоэлектроника и приборостроение',
+  industry: 'electronics',
   description: 'Советский и российский холдинг по разработке и выпуску мощных электровакуумных приборов и изделий микроэлектроники; более 20 % продукции идёт на экспорт.',
   image: 'img/svetlana_photos/svetlana_header.jpg'
 },
@@ -405,7 +405,7 @@
   link: 'factories/udaritsa.html',
   startYear: 1929,
   endYear: null,
-  industry: 'кондитерское производство',
+  industry: 'food',
   description: 'Старейший российский производитель зефира, пастилы, мармелада и клюквы в сахарной пудре; основана в 1929 году на базе пивоваренного завода «Карнеева, Горшанова и Ко».',
   image: 'img/udaritsa_photos/udaritsa_header.jpg'
 }, 
@@ -417,7 +417,7 @@
   link: 'factories/pigment.html',
   startYear: 1934,
   endYear: null,
-  industry: 'химическая промышленность',
+  industry: 'chemicals',
   description: 'НПО «Пигмент», образованное в 1976 г.; ведёт историю от Киновиевского ультрамаринового завода Г. И. Веге (основан 1876 г.), с 1934 г. входил в структуру Невского химического завода; выпускает более 1500 наименований лакокрасочной и химической продукции.',
   image: 'img/pigment_photos/pigment_header.jpg'
 },
@@ -430,7 +430,7 @@
   link: 'factories/baltika.html',
   startYear: 1990,
   endYear: null,
-  industry: 'пищевая промышленность',
+  industry: 'food',
   description: 'Открытое акционерное общество «Пивоваренная компания „Балтика“» основано в 1990 г. в СПб, с 1998 г. зарегистрировано под именем ОАО «Балтика». Крупнейший пивоваренный холдинг России, вторая по величине пивоваренная компания в Европе с долей свыше 38 % на российском рынке. С 2001 г. котируется на бирже RTS, с 2012 г. входит в Carlsberg Group, чьи акции экспроприированы правительством РФ в июле 2023 г. и проданы менеджменту в декабре 2024 г.',
   image: 'img/baltika_photos/baltika_header.jpg'
 }, 
@@ -440,7 +440,7 @@
   link: 'factories/zvezda.html',
   startYear: 1932,
   endYear: null,
-  industry: 'машиностроение',
+  industry: 'machinery',
   description: 'ПАО «Звезда» (до 1991 г. – ЛМЗ «Звезда» им. К. Е. Ворошилова) основано в 1932 г. на базе опытного производства завода «Большевик». Специализируется на дизельных двигателях многоцелевого назначения. С 1945 г. выпускает высокооборотные дизели. Свыше 90 % скоростных кораблей ВМФ РФ оснащены двигателями «Звезды». Под международными санкциями с 2022 г. из-за вторжения России на Украину.',
   image: 'img/zvezda_photos/zvezda_header.jpg'
 }
@@ -454,54 +454,77 @@
       
 ];
 
-    let currentMarkers = [];
-    let activeIndustries = ['shipbuilding', 'textile', 'metal'];
+    let currentMarkers = []; 
 
-    function updateMap(year) {
-      currentMarkers.forEach(m => map.removeLayer(m));
-      currentMarkers = [];
+// Обновлённый список отраслей
+let activeIndustries = [
+  'shipbuilding',       // судостроение
+  'textile',            // текстиль
+  'metal',              // металлургия
+  'machinery',          // машиностроение
+  'electronics',        // электроника
+  'chemicals',          // химическая промышленность
+  'food',               // пищевая промышленность
+  'printing',           // полиграфия
+  'optics',             // оптико-механическая
+  'weapons'             // вооружение
+  'mint'
+];
 
-      factories.forEach(factory => {
-        const yearActive = year >= factory.startYear && (factory.endYear === null || year <= factory.endYear);
-        const industryActive = activeIndustries.includes(factory.industry);
-        
-        if (yearActive && industryActive) {
-          const popupContent = `
-            <div class="factory-popup">
-              <h3>${factory.name}</h3>
-              ${factory.image ? `<img src="${factory.image}" alt="${factory.name}">` : ''}
-              <p>${factory.description}</p>
-              <p><strong>Годы работы:</strong> ${factory.startYear} — ${factory.endYear || 'н.в.'}</p>
-              <a href="${factory.link}">Подробнее →</a>
-            </div>
-          `;
-          
-          const marker = L.marker(factory.coords, {
-            icon: getIconForIndustry(factory.industry)
-          }).addTo(map)
-            .bindPopup(popupContent, {maxWidth: 300});
-          
-          currentMarkers.push(marker);
-        }
-      });
+function updateMap(year) {
+  currentMarkers.forEach(m => map.removeLayer(m));
+  currentMarkers = [];
+
+  factories.forEach(factory => {
+    const yearActive = year >= factory.startYear && (factory.endYear === null || year <= factory.endYear);
+    const industryActive = activeIndustries.includes(factory.industry);
+
+    if (yearActive && industryActive) {
+      const popupContent = `
+        <div class="factory-popup">
+          <h3>${factory.name}</h3>
+          ${factory.image ? `<img src="${factory.image}" alt="${factory.name}">` : ''}
+          <p>${factory.description}</p>
+          <p><strong>Годы работы:</strong> ${factory.startYear} — ${factory.endYear || 'н.в.'}</p>
+          <a href="${factory.link}">Подробнее →</a>
+        </div>
+      `;
+
+      const marker = L.marker(factory.coords, {
+        icon: getIconForIndustry(factory.industry)
+      }).addTo(map)
+        .bindPopup(popupContent, { maxWidth: 300 });
+
+      currentMarkers.push(marker);
     }
+  });
+}
 
-    function getIconForIndustry(industry) {
-      const iconColors = {
-        'shipbuilding': 'blue',
-        'textile': 'red',
-        'metal': 'orange'
-      };
-      
-      return L.icon({
-        iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[industry] || 'grey'}.png`,
-        shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
-        iconSize: [25, 41],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
-    }
+function getIconForIndustry(industry) {
+  const iconColors = {
+    'shipbuilding': 'blue',
+    'textile': 'red',
+    'metal': 'orange',
+    'machinery': 'green',
+    'electronics': 'purple',
+    'chemicals': 'cadetblue',
+    'food': 'darkred',
+    'printing': 'black',
+    'optics': 'violet',
+    'weapons': 'darkblue',
+    'mint': 'yellow'
+  };
+
+  return L.icon({
+    iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[industry] || 'grey'}.png`,
+    shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
+    iconSize: [25, 41],
+    iconAnchor: [12, 41],
+    popupAnchor: [1, -34],
+    shadowSize: [41, 41]
+  });
+}
+
 
     const yearRange = document.getElementById('yearRange');
     const yearLabel = document.getElementById('yearLabel');
