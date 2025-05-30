@@ -6,94 +6,179 @@
   <title>Завод «Светлана» | Индустриальный Петербург</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
   <style>
+    :root {
+      --primary-color: #e74c3c;
+      --secondary-color: #2c3e50;
+      --light-bg: #f5f5f5;
+      --text-color: #333;
+      --white: #fff;
+    }
+    
     body {
       font-family: 'Roboto', sans-serif;
       margin: 0;
       padding: 0;
       line-height: 1.6;
-      color: #333;
+      color: var(--text-color);
+      background-color: #f9f9f9;
     }
+    
     .factory-header {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/svetlana_photos/svetlana_header.jpg');
-      color: white;
-      padding: 4em 1em;
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/svetlana_photos/svetlana_header.jpeg');
+      color: var(--white);
+      padding: 6em 1em;
       text-align: center;
       background-size: cover;
       background-position: center;
+      margin-bottom: 2em;
+      position: relative;
     }
-    h1, h2 {
+    
+    h1, h2, h3 {
       font-family: 'PT Sans Caption', sans-serif;
-      margin-bottom: 0.5em;
+      color: var(--secondary-color);
     }
+    
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+    }
+    
+    h2 {
+      font-size: 2em;
+      margin: 1.5em 0 0.8em;
+      border-bottom: 2px solid var(--primary-color);
+      padding-bottom: 0.3em;
+    }
+    
+    h3 {
+      font-size: 1.5em;
+      margin: 1.2em 0 0.6em;
+    }
+    
     .container {
       max-width: 900px;
-      margin: 2em auto;
-      padding: 0 1em;
+      margin: 0 auto 3em;
+      padding: 0 1.5em;
+      background-color: var(--white);
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 5px;
+      position: relative;
+      z-index: 1;
     }
+    
     .toggle-timeline {
-      background-color: #e74c3c;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--white);
       border: none;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 16px;
       cursor: pointer;
       border-radius: 5px;
-      margin-bottom: 1em;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 1em 0;
+      transition: all 0.3s;
+      display: inline-block;
     }
+    
+    .toggle-timeline:hover {
+      background-color: #c0392b;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    
     .timeline {
       display: none;
       flex-direction: column;
       gap: 15px;
-      border-left: 3px solid #e74c3c;
-      padding-left: 1em;
-      margin-bottom: 2em;
+      border-left: 3px solid var(--primary-color);
+      padding-left: 1.5em;
+      margin: 1em 0 2em;
     }
+    
     .timeline-item {
-      padding-left: 1em;
+      padding: 0.8em 1em;
+      background-color: var(--light-bg);
+      border-radius: 4px;
+      position: relative;
     }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: -1.68em;
+      top: 1.2em;
+      width: 12px;
+      height: 12px;
+      background-color: var(--primary-color);
+      border-radius: 50%;
+    }
+    
+    .timeline-item strong {
+      color: var(--primary-color);
+    }
+    
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
-      margin: 2em 0;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 25px;
+      margin: 2.5em 0;
     }
-    .gallery figure {
-      margin: 0;
-    }
+    
     .gallery img {
       width: 100%;
-      height: 200px;
+      height: 220px;
       object-fit: cover;
       border-radius: 5px;
+      transition: transform 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
     }
+    
+    .gallery img:hover {
+      transform: scale(1.05);
+    }
+    
     .gallery figcaption {
       text-align: center;
-      font-size: 14px;
-      margin-top: 5px;
+      font-size: 15px;
+      margin-top: 10px;
       color: #555;
+      font-weight: 500;
     }
+    
     .back-link {
       display: inline-block;
       margin: 2em 0;
-      color: #e74c3c;
+      color: var(--primary-color);
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1em;
+      transition: all 0.3s;
+      padding: 8px 15px;
+      border-radius: 4px;
     }
+    
+    .back-link:hover {
+      color: #c0392b;
+      background-color: rgba(231, 76, 60, 0.1);
+      text-decoration: underline;
+    }
+    
     footer {
-      background: #2c3e50;
-      color: white;
+      background: var(--secondary-color);
+      color: var(--white);
       text-align: center;
-      padding: 1em;
-      margin-top: 2em;
+      padding: 2em 1em;
+      margin-top: 3em;
     }
+    
     #scrollTopBtn {
       position: fixed;
       bottom: 30px;
       right: 30px;
       z-index: 100;
-      background-color: #e74c3c;
-      color: white;
+      background-color: var(--primary-color);
+      color: var(--white);
       border: none;
       border-radius: 50%;
       width: 50px;
@@ -101,132 +186,186 @@
       font-size: 24px;
       cursor: pointer;
       display: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: opacity 0.3s ease-in-out;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s;
     }
+    
+    #scrollTopBtn:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
+    }
+    
     section {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      margin-bottom: 2em;
+      margin-bottom: 3em;
     }
+    
     section.visible {
       opacity: 1;
       transform: translateY(0);
     }
+    
     .historical-fact {
-      background: #f5f5f5;
-      padding: 15px;
+      background: var(--light-bg);
+      padding: 18px;
       border-radius: 5px;
-      margin: 15px 0;
-      border-left: 3px solid #e74c3c;
+      margin: 1.5em 0;
+      border-left: 4px solid var(--primary-color);
     }
+    
     ul {
-      padding-left: 1.2em;
+      padding-left: 1.5em;
+      line-height: 1.7;
     }
+    
     ul li {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.7em;
+      position: relative;
+    }
+    
+    ul li::before {
+      content: '•';
+      color: var(--primary-color);
+      font-weight: bold;
+      display: inline-block;
+      width: 1em;
+      margin-left: -1em;
+    }
+    
+    p {
+      margin-bottom: 1.2em;
+      line-height: 1.7;
+    }
+    
+    .microchip-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      margin: 2em 0;
+    }
+    
+    .microchip-card {
+      flex: 1 1 300px;
+      background: var(--light-bg);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    }
+    
+    .microchip-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: contain;
+      background: white;
+      padding: 15px;
+    }
+    
+    .microchip-info {
+      padding: 15px;
+    }
+    
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: 1fr;
+      }
+      
+      .factory-header {
+        padding: 4em 1em;
+      }
+      
+      h1 {
+        font-size: 2em;
+      }
+      
+      .container {
+        padding: 0 1em;
+      }
     }
   </style>
 </head>
 <body>
   <header class="factory-header">
     <h1>Завод «Светлана»</h1>
-    <p>Советский и российский холдинг по выпуску электровакуумных приборов и изделий микроэлектроники</p>
+    <p>Ведущий производитель электронных компонентов с 1913 года</p>
   </header>
 
   <div class="container">
     <a href="../index.html" class="back-link">← Назад к карте</a>
 
     <section>
-      <p>Завод «Светлана» (до 1992 года — Ленинградское объединение электронного приборостроения «Светлана») основан в 1913 году как отделение осветительных ламп в АО «Я. М. Айваз». Сегодня холдинг выпускает мощные электровакуумные приборы и микроэлектронику, свыше 20 % продукции поставляется на экспорт.</p>
+      <p>Основанный в 1913 году, завод «Светлана» стал флагманом советской и российской электронной промышленности. От первых электрических ламп до современных микрочипов - предприятие всегда находилось на переднем крае технологического прогресса.</p>
+      
       <h2>История завода</h2>
-      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать хронологию</button>
       <div class="timeline" id="timeline">
-        <div class="timeline-item"><strong>1913</strong> — Создано отделение «Светлана» в АО «Я. М. Айваз», выпускавшем папиросные гильзы и машины; отделение производило лампочки и прицелы.</div>
-        <div class="timeline-item"><strong>1914</strong> — Пущен завод электрических ламп накаливания «Светлана»; входил в секцию «Электролампа» (постановление ВСНХ от 19.03.1919).</div>
-        <div class="timeline-item"><strong>1928</strong> — Организован выпуск радиоламп, на завод вошли электровакуумный цех и лаборатория С. А. Векшинского; завод № 211 НКЭП.</div>
-        <div class="timeline-item"><strong>1937–1938</strong> — Внедрены мощности для приёмно-усилительных ламп (договор с RCA), начат выпуск телевиденных ионовоскопов (иконоскопы).</div>
-        <div class="timeline-item"><strong>1941–1942</strong> — Эвакуация части оборудования в Новосибирск (завод № 617 НКЭП); оставшаяся часть в Ленинграде выпускала боеприпасы, затем возобновила электротоварное производство.</div>
-        <div class="timeline-item"><strong>1946–1949</strong> — Ведётся восстановление; организовано производство металлокерамических ламп (1947), в 1949 г. завод № 461 (рентгеновские трубки) включён в состав.</div>
-        <div class="timeline-item"><strong>1952–1955</strong> — Завод передан Министерству электростанций (1952) и Министерству радиопромышленности (1954); создан цех по серийному производству транзисторов (1955).</div>
-        <div class="timeline-item"><strong>1962</strong> — Образовано Ленинградское объединение электронного приборостроения «Светлана» (ЛОЭП) с филиалами, ОКБ и заводами «Онего», Маловишерским стекольным заводом.</div>
-        <div class="timeline-item"><strong>1970–1972</strong> — На территории установлен памятник «Электроника» (1970); образовано ЛКБ интегральных схем, затем ЛКТБ (1972) для микро-ЭВМ (Электроника С5).</div>
-        <div class="timeline-item"><strong>1992–1993</strong> — ЛОЭП преобразовано в ОАО «Светлана» (1992); основаны дочерние АО «С.Е.Д.-СПб», «Светлана-Рентген» и «Светлана-Электронприбор» (1993).</div>
-        <div class="timeline-item"><strong>1996</strong> — Создан завод «ИРСЭТ-Центр» для противопожарной автоматики; 2000 г. — ЗАО «Светлана-Оптоэлектроника» (полупроводники).</div>
-        <div class="timeline-item"><strong>2007</strong> — Выпуск первых российских энергосберегающих светодиодных светильников.</div>
-        <div class="timeline-item"><strong>2014</strong> — Отмечено 100-летие выпуска первой лампочки; разработана технология монокристаллов карбида кремния для НИОКР.</div>
-        <div class="timeline-item"><strong>2017–2019</strong> — Начато сокращение активов, продажа участков, строительство жилого комплекса на части территории.</div>
+        <div class="timeline-item"><strong>1913</strong> — Основание как отделения «Светлана» в АО «Я. М. Айваз» для производства ламп накаливания.</div>
+        <div class="timeline-item"><strong>1928</strong> — Начало производства радиоламп, ставшее важной вехой в развитии радиоэлектроники.</div>
+        <div class="timeline-item"><strong>1941-1945</strong> — Эвакуация части производства в Новосибирск, оставшиеся мощности работали для нужд фронта.</div>
+        <div class="timeline-item"><strong>1955</strong> — Организация первого в СССР цеха по производству транзисторов.</div>
+        <div class="timeline-item"><strong>1962</strong> — Создание Ленинградского объединения электронного приборостроения «Светлана».</div>
+        <div class="timeline-item"><strong>2007</strong> — Запуск производства энергосберегающих светодиодных светильников.</div>
+        <div class="timeline-item"><strong>2020-е</strong> — Развитие современных направлений микроэлектроники и оптоэлектроники.</div>
       </div>
     </section>
 
     <section>
       <h2>Архитектура и расположение</h2>
       <div class="historical-fact">
-        <strong>Адрес:</strong> проспект Энгельса, 27, Выборгский район, Санкт-Петербург, 194156.
+        <strong>Адрес:</strong> Санкт-Петербург, проспект Энгельса, 27
       </div>
+      <p>Заводской комплекс расположен в Выборгском районе Санкт-Петербурга. Исторические корпуса сочетаются с современными производственными помещениями. В 1970 году на территории была установлена скульптура «Электроника», ставшая символом предприятия.</p>
+      
+      <div class="gallery">
+        <figure>
+          <img src="../img/svetlana_photos/svetlana-zavod-st.jpeg" alt="Исторический вид завода Светлана" />
+          <figcaption>Завод «Светлана» в середине XX века</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Легендарная продукция</h2>
+      
+      <h3>Лампа «Светлана» 6П1П</h3>
+      <div class="gallery">
+        <figure>
+          <img src="../img/svetlana_photos/vacuum_tube.jpeg" alt="Лампа Светлана 6П1П" />
+          <figcaption>Легендарная лампа 6П1П</figcaption>
+        </figure>
+      </div>
+      <p>Одна из самых известных разработок завода - пентод 6П1П, широко использовавшийся в радиотехнике и аудиоаппаратуре. Эта лампа стала символом качества советской электроники.</p>
+      
+      <h3>Микросхема Б533ИД7-2</h3>
+      <div class="microchip-container">
+        <div class="microchip-card">
+          <img src="../img/svetlana_photos/mii.png" alt="Микросхема Б533ИД7-2" />
+          <div class="microchip-info">
+            <p><strong>Б533ИД7-2</strong> - двоичный дешифратор на восемь направлений, разработанный на заводе «Светлана». Важный компонент в вычислительной технике 1970-80-х годов.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Современное производство</h2>
+      <p>Сегодня завод «Светлана» продолжает выпускать широкий спектр электронных компонентов, сохраняя традиции качества и внедряя современные технологии. Предприятие входит в число ключевых производителей электроники в России.</p>
+      
       <div class="historical-fact">
-        <strong>Границы территории</strong><br>
-        Ограничена проспектом Энгельса, Светлановской пл., Светлановским пр., проспектом Тореза и Манчестерской ул. В честь завода названы Светлановская площадь и Светлановский проспект.
+        <strong>Основные направления:</strong> микроэлектроника, оптоэлектроника, светодиодные технологии, компоненты для телекоммуникационного оборудования.
       </div>
-      <p>Первоначально основная площадка занимала весь квартал; сохранились корпуса 1920–1930-х гг., цеха эпохи ВОВ и советской электроники. На пересечении Энгельса и Тореза установлена стела «Электроника» (1970), демонтированная в 1990-е и вновь установлена в 2022 г. на Энгельса, 27.</p>
-    </section>
-
-    <section>
-      <h2>Продукция</h2>
-      <div class="gallery">
-        <figure>
-          <img src="../img/svetlana_photos/vacuum_tube.jpg" alt="Электровакуумная лампа" />
-          <figcaption>Электровакуумная лампа (с 1928 г.)</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/svetlana_photos/transistor_factory.jpg" alt="Цех транзисторов" />
-          <figcaption>Первый цех транзисторов (1955 г.)</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/svetlana_photos/illuminator.jpg" alt="Светодиодный светильник" />
-          <figcaption>Светодиодный светильник (с 2007 г.)</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/svetlana_photos/radiolamp_ig8.jpg" alt="Радиолампа ИГ-8" />
-          <figcaption>Радиолампа ИГ-8 (1939 г.)</figcaption>
-        </figure>
-      </div>
-      <ul>
-        <li>Электровакуумные приборы: радиолампы, генераторные и модуляторные лампы, газотроны, кенотроны, лампы накаливания.</li>
-        <li>Полупроводниковые устройства: транзисторы С1, С2, П1–П3 (1956–1960 гг.), микросхемы серий 100, 500, 700, 1500 (1970-е гг.).</li>
-        <li>Кинопроекторы «Луч», лампы для радиолокации, телевизионные иконоскопы (1938 г.).</li>
-        <li>Энергосберегающие светодиодные светильники белого света (10 Вт, 20 Вт) — с 2007 г.</li>
-        <li>Фотоэлектронные умножители, рентгеновские трубки, герконы и пьезофильтры (1949–1950 гг.).</li>
-        <li>Бытовая электроника: радиолюбительские лампы, электронные компоненты для бытовой техники.</li>
-        <li>Оптоэлектронные приборы для медицины и досмотровой техники.</li>
-        <li>Военные устройства: генераторная лампа ИГ-8, газосветные лампы для аварийного освещения, корпуса мин и взрыватели (1941 г.).</li>
-      </ul>
-    </section>
-
-    <section>
-      <h2>Современное состояние</h2>
-      <div class="gallery">
-        <figure>
-          <img src="../img/svetlana_photos/svetlana_now.jpg" alt="Современный вид завода «Светлана»" />
-          <figcaption>Современный вид завода «Светлана»</figcaption>
-        </figure>
-      </div>
-      <p>Сегодня «Светлана» входит в состав ПАО и объединяет пять дочерних предприятий: АО «С.Е.Д.-СПб», АО «Светлана-Рентген», АО «Светлана-Электронприбор», ООО «Энергетик» и другие. Продукция завода востребована в радиоэлектронике, медицинской технике и экспорте — более 20 % выпуска отправляется за рубеж.</p>
     </section>
 
     <section>
       <h2>Факты и достижения</h2>
       <ul>
-        <li>Основан в 1913 г. как отделение «Светлана» в АО «Я. М. Айваз».</li>
-        <li>В 1928 г. впервые в СССР налажен серийный выпуск радиоламп; к 1938 г. завод № 211 стал ключевым предприятием радиопрома.</li>
-        <li>Во время ВОВ часть выпущенного оборудования была эвакуирована в Новосибирск; оставшаяся часть в Ленинграде выпускала боеприпасы.</li>
-        <li>С 1955 г. завод стал пионером в СССР по производству транзисторов и полупроводников.</li>
-        <li>В 1962 г. объединён в ЛОЭП «Светлана» с несколькими КБ и заводами-филиалами.</li>
-        <li>Награждён двумя орденами Ленина и двумя орденами Трудового Красного Знамени за заслуги перед обороной и промышленностью СССР.</li>
-        <li>В 2007 г. выпустил первые российские энергосберегающие LED-светильники.</li>
-        <li>С 2014 г. разработал промышленную технологию монокристаллов карбида кремния для создания компонентной базы XXI века.</li>
-        <li>В 2022 г. скульптура «Электроника» вновь установлена на Энгельса, 27.</li>
+        <li>Первый в СССР серийный производитель радиоламп (с 1928 года)</li>
+        <li>Пионер в производстве транзисторов (с 1955 года)</li>
+        <li>Разработчик уникальных электронных компонентов для космической и военной техники</li>
+        <li>Производитель легендарных ламп 6П1П, используемых в аудиоаппаратуре</li>
+        <li>Создатель серии микросхем для вычислительной техники</li>
+        <li>Награжден двумя орденами Ленина и двумя орденами Трудового Красного Знамени</li>
       </ul>
     </section>
 
@@ -236,12 +375,13 @@
   <footer>
     <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
     <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
-    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+    <p>Студентки 1 курса, группы V3145</p>
   </footer>
 
   <button id="scrollTopBtn" title="Наверх">↑</button>
 
   <script>
+    // Анимация появления секций
     const sections = document.querySelectorAll('section');
     function checkSections() {
       const triggerBottom = window.innerHeight * 0.8;
@@ -255,6 +395,7 @@
     window.addEventListener('scroll', checkSections);
     window.addEventListener('load', checkSections);
 
+    // Кнопка "Наверх"
     const scrollBtn = document.getElementById("scrollTopBtn");
     window.onscroll = function() {
       if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
@@ -267,10 +408,23 @@
       window.scrollTo({ top: 0, behavior: 'smooth' });
     };
 
+    // Переключение хронологии
     function toggleTimeline() {
       const timeline = document.getElementById("timeline");
-      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+      const button = document.querySelector(".toggle-timeline");
+      if (timeline.style.display === "none" || timeline.style.display === "") {
+        timeline.style.display = "flex";
+        button.textContent = "Скрыть хронологию";
+      } else {
+        timeline.style.display = "none";
+        button.textContent = "Показать хронологию";
+      }
     }
+    
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('timeline').style.display = 'none';
+    });
   </script>
 </body>
 </html>
