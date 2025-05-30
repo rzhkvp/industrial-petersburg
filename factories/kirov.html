@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Кировский завод | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      /* Фон: замените путь на действительный файл, например ../img/kirov_photos/kirov_header.jpg */
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/kirov_photos/kirov_header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Кировский завод</h1>
+    <p>Одно из старейших машиностроительных и металлургических предприятий России</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Кировский завод (ранее Путиловский завод, Красный Путиловец) основан 3 апреля (21 марта по ст. ст.) 1801 года как Санкт-Петербургский чугунолитейный завод. В последующие десятилетия предприятие неоднократно меняло владельцев и профиль, пока в 1868–1874 годах не стало основой современного «Путиловского товарищества».</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1789–1801</strong> — Постройка Кронштадтского чугунолитейного завода (1789) и его перенос в Петербург (1801). 3 апреля 1801 года отлито первое пушечное ядро.</div>
+        <div class="timeline-item"><strong>1801–1827</strong> — Завод принадлежал Олонецким горным предприятиям. Начал выпускать пушечные ядра, ружья и архитектурные металлические элементы.</div>
+        <div class="timeline-item"><strong>1824</strong> — Наводнение нанесло серьёзный ущерб; после реконструкции организовано котельное производство.</div>
+        <div class="timeline-item"><strong>1844</strong> — Начат выпуск рельсов.</div>
+        <div class="timeline-item"><strong>1866–1869</strong> — Принят устав Товарищества железоделательного завода «Перун» (1866), затем продан Н. И. Путилову (1869) и переименован в «Путиловский завод».</div>
+        <div class="timeline-item"><strong>1870</strong> — Начал работу бессемеровский конвертер; введена первая мартеновская печь в Петербурге (1874).</div>
+        <div class="timeline-item"><strong>1872–1874</strong> — Устав общества «Путиловские заводы» утверждён (1872); начато изготовление товарных вагонов (1874).</div>
+        <div class="timeline-item"><strong>1888</strong> — Завод освоил выпуск пассажирских вагонов.</div>
+        <div class="timeline-item"><strong>1893</strong> — Начато производство паровозов; завод занял ведущее положение в машиностроении.</div>
+        <div class="timeline-item"><strong>1905</strong> — Забастовка на Путиловском заводе привела к выступлениям 9 (22) января («Кровавое воскресенье»).</div>
+        <div class="timeline-item"><strong>1913</strong> — «Путиловская верфь» выделена как самостоятельное юридическое лицо (ныне ОАО «Северная верфь»).</div>
+        <div class="timeline-item"><strong>1917–1918</strong> — В феврале 1917 года фабрика стала центром революционных событий; 27 декабря 1917 (9 января 1918) национализирована и переименована в «Красный путиловец».</div>
+        <div class="timeline-item"><strong>1922</strong> — Завод получил имя «Красный путиловец» официально.</div>
+        <div class="timeline-item"><strong>1924</strong> — Начало испытаний и серийного производства первого советского трактора «Фордзон-Путиловец».</div>
+        <div class="timeline-item"><strong>1927</strong> — Выпуск первых стальных трамваев серии МС.</div>
+        <div class="timeline-item"><strong>1934</strong> — 17 декабря завод переименован в «Кировский завод» (в честь С. М. Кирова).</div>
+        <div class="timeline-item"><strong>1939</strong> — Освоен выпуск танка КВ.</div>
+        <div class="timeline-item"><strong>1941–1945</strong> — Во время ВОВ часть мощностей эвакуирована в Челябинск («Танкоград»), часть оставалась в Ленинграде и продолжала выпускать боеприпасы и ремонтировать технику под бомбёжками.</div>
+        <div class="timeline-item"><strong>1947</strong> — Освоено производство гусеничных тракторов КТ-12.</div>
+        <div class="timeline-item"><strong>1951</strong> — Начат выпуск турбозубчатых агрегатов для надводного и подводного флота.</div>
+        <div class="timeline-item"><strong>1954</strong> — Создана первая в мире промышленная газовая центрифуга для разделения изотопов урана.</div>
+        <div class="timeline-item"><strong>1957</strong> — Разработана и изготовлена турбина для атомного ледокола «Ленин»; выпущены вездеходы «Пингвин». 1962–1964 — начало производства тракторов «Кировец».</div>
+        <div class="timeline-item"><strong>1976</strong> — Создан танк Т-80; уникальные газотурбинные двигатели.</div>
+        <div class="timeline-item"><strong>1987</strong> — Рекордный выпуск тракторов «Кировец» — 23 003 единицы в год.</div>
+        <div class="timeline-item"><strong>1992</strong> — Акционирование: создано ОАО «Кировский завод»; смена профиля на дорожно-строительную и специальную технику.</div>
+        <div class="timeline-item"><strong>2008</strong> — 24 октября 2008 года 18,42 % акций куплены «UBS AG».</div>
+        <div class="timeline-item"><strong>2011</strong> — Основано дочернее «Вагонмаш» совместно со Škoda Transportation.</div>
+        <div class="timeline-item"><strong>2013</strong> — Начало работ над паротурбинной установкой для атомного ледокола «Арктика»; основано «Кировский завод Газовые технологии».</div>
+        <div class="timeline-item"><strong>2016</strong> — Создано дочернее ООО «Завод Буровых технологий»; подписано соглашение об объединении с «Машиностроительным заводом им. В. В. Воровского».</div>
+        <div class="timeline-item"><strong>2017</strong> — Кировскому заводу присвоен орден Почёта (26 сентября); открыт испытательный стенд для паровых турбин (24 мая).</div>
+        <div class="timeline-item"><strong>2022</strong> — Подписано партнёрство с Алтайским краем и АО «Петербургский тракторный завод»; разрабатывается коммунальная техника.</div>
+        <div class="timeline-item"><strong>2024</strong> — Коллектив завода награждён орденом Почёта (26 сентября).</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Архитектура и расположение</h2>
+      <div class="historical-fact">
+        <strong>Территория завода</strong><br>
+        Компактно расположена между проспектом Стачек и рекой Екатерингофкой, занимает около 220 гектаров. Имеются собственные глубоководные причалы вдоль двухкилометровой береговой линии Финского залива.
+      </div>
+      <div class="historical-fact">
+        <strong>Путиловская ветвь</strong><br>
+        В 1870–1880-е годы завод соединил свои корпуса с торговым портом и железными дорогами, построив «Путиловскую ветвь» — крупнейшие подъездные пути Петербурга с основной станцией Пущино.
+      </div>
+      <p>Действующие производственные корпуса сочетают архаичные цеха XIX века и современные металлургические и машиностроительные корпуса. Некоторые здания завода имеют статус объектов культурного наследия (например, опытный корпус начала XIX века).</p>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/kirov_photos/tractor_kirovets.jpg" alt="Трактор Кировец" />
+          <figcaption>Трактор «Кировец» (серийный выпуск с 1964 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/kirov_photos/tank_T80.jpg" alt="Танк Т-80" />
+          <figcaption>Танк Т-80 (1976 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/kirov_photos/icebreaker_turbine.jpg" alt="Турбина для ледокола" />
+          <figcaption>Турбина для атомного ледокола «Ленин» (1957 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/kirov_photos/forzdon_putilovets.jpg" alt="Трактор Фордзон-Путиловец" />
+          <figcaption>Трактор «Фордзон-Путиловец» (испытания 1924 г.)</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>Пушечные ядра, ружья и котлы (XIX век)</li>
+        <li>Рельсы и кузова вагонов (с 1844 г.), паровозы (с 1893 г.)</li>
+        <li>Тра́кторы «Фордзон-Путиловец» и «Универсал» (1924–1941 гг.)</li>
+        <li>Трамваи серии МС (с 1927 г.)</li>
+        <li>Танки Т-28 и Т-80, бронеавтомобили «Остин-Путиловец» (1930–1940 гг.)</li>
+        <li>Гусеничные трактора КТ-12 (1947 г.)</li>
+        <li>Турбозубчатые агрегаты для флота (с 1951 г.)</li>
+        <li>Газовые центрифуги (с 1954 г.)</li>
+        <li>Турбины для атомных ледоколов «Ленин», «Арктика» (1957, 2013 гг.)</li>
+        <li>Трактора «Кировец» (с 1964 г.)</li>
+        <li>Танк Т-80 (с 1976 г.)</li>
+        <li>Дорожно-строительная техника и спецмашины (1992 – наст. время)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/kirov_photos/kirov_now.jpg" alt="Современный вид Кировского завода" />
+          <figcaption>Современный вид Кировского завода</figcaption>
+        </figure>
+      </div>
+      <p><strong>Адрес:</strong> Санкт-Петербург, Кировский район, между проспектом Стачек и р. Екатерингофкой.</p>
+      <p>Сегодня «Кировский завод» — это управляющая компания более чем 20 дочерними предприятиями, работающими в машиностроении, металлургии, энергетике, сельском и транспортном машиностроении. Консолидированная выручка группы за 2021 год составила около 41 млрд руб., чистая прибыль — около 800 млн руб.</p>
+      <p>В составе группы ключевое дочернее предприятие — АО «Петербургский тракторный завод», производящее тракторы «Кировец» (8 модификаций) и дорожно-строительную технику. Доля «Кировцев» на рынке мощных тракторов РФ превышает 70 %.</p>
+      <p>Другая дочерняя структура — АО «Киров-Энергомаш» — выпускает энергооборудование для атомного флота и АЭС; АО «Металлургический завод „Петросталь“» снабжает металлургическими изделиями автомобильные и машиностроительные заводы.</p>
+      <p>В 2017 году открыт единственный в России испытательный стенд для паровых турбин мощностью до 75 МВт. В 2024 году коллектив завода был награждён орденом Почёта.</p>
+    </section>
+
+    <section>
+      <h2>Факты и достижения</h2>
+      <ul>
+        <li>Завод награждён орденами Ленинa (1939, 1951), Трудового Красного Знамени (1926), Красного Знамени (1940), Октябрьской Революции (1970), Дружбы народов (1976), Отечественной войны I степени (1985), Почёта (2024).</li>
+        <li>Во время ВОВ часть производства эвакуирована в Челябинск («Танкоград»); ленинградская часть продолжала работу под артобстрелами.</li>
+        <li>Выпущено более 480 000 тракторов «Кировец» с 1962 года.</li>
+        <li>В 1939 году разработан танк КВ — один из лучших тяжёлых танков начала ВОВ.</li>
+        <li>В 1954 году создана первая в мире промышленная газовая центрифуга для разделения урана.</li>
+        <li>Среди выпускников и рабочих — дед Ю. А. Гагарина (Т. М. Матвеев) и Василий Васильев (охранник Ленина, впоследствии военачальник).</li>
+        <li>При заводе была футбольная команда «Кировец» (10 000 зрителей на стадионе); в 1980 и 1994 гг. там играл «Зенит».</li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
