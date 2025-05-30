@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Петродворцовый часовой завод «Ракета» | Индустриальный Петербург</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body { font-family: 'Roboto', sans-serif; margin:0; padding:0; color:#333; line-height:1.6 }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.6),rgba(0,0,0,0.6)),
+        url('../img/petrodvorets_photos/header.jpg');
+      color:#fff; text-align:center; padding:4em 1em;
+      background-size:cover; background-position:center;
+    }
+    h1,h2 { font-family:'PT Sans Caption',sans-serif; margin-bottom:.5em }
+    .container { max-width:900px; margin:2em auto; padding:0 1em }
+    .toggle-timeline {
+      background:#e74c3c;color:#fff;border:none;padding:10px 20px;
+      font-size:16px;cursor:pointer;border-radius:5px;margin-bottom:1em;
+      box-shadow:0 4px 6px rgba(0,0,0,0.1);
+    }
+    .timeline {
+      display:none;flex-direction:column;gap:12px;
+      border-left:3px solid #e74c3c;padding-left:1em;margin-bottom:2em;
+    }
+    .timeline-item { padding-left:1em }
+    .gallery {
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));
+      gap:15px;margin:2em 0;
+    }
+    .gallery img {
+      width:100%;height:200px;object-fit:cover;border-radius:5px;
+    }
+    .gallery figcaption {
+      text-align:center;font-size:14px;margin-top:5px;
+    }
+    section {
+      opacity:0;transform:translateY(30px);
+      transition:opacity .6s ease-out,transform .6s ease-out;
+      margin-bottom:2em;
+    }
+    section.visible { opacity:1;transform:translateY(0) }
+    .back-link {
+      display:inline-block;margin:2em 0;color:#e74c3c;
+      text-decoration:none;font-weight:bold;
+    }
+    footer { background:#2c3e50;color:#fff;text-align:center;
+      padding:1em;margin-top:2em;
+    }
+    #scrollTopBtn {
+      position:fixed;bottom:30px;right:30px;z-index:100;
+      background:#e74c3c;color:#fff;border:none;border-radius:50%;
+      width:50px;height:50px;font-size:24px;cursor:pointer;display:none;
+      box-shadow:0 2px 6px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Петродворцовый часовой завод «Ракета»</h1>
+    <p>Основан в 1721 г. как гранильная фабрика при дворце, с 1961 г. выпускает часы «Ракета»</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>
+        В 1721 г. по указу Петра I на Санкт-Петербургском проспекте, 60 (тогда Петергоф) открыта гранитная фабрика для резки камней. С 1918 г. — часовой завод, с 1949 г. выпускает «Победа», с 1961 г. — «Ракета».
+      </p>
+      <h2>Хронология</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1721</strong> — Основание гранитной фабрики.</div>
+        <div class="timeline-item"><strong>1778</strong> — Построено каменное здание по проекту Фельтена.</div>
+        <div class="timeline-item"><strong>1848–58</strong> — Мраморное отделение для Исаакиевского собора.</div>
+        <div class="timeline-item"><strong>1918</strong> — Преобразование в часовой завод.</div>
+        <div class="timeline-item"><strong>1949</strong> — Начало выпуска часов «Победа» и «Звезда».</div>
+        <div class="timeline-item"><strong>1961</strong> — Запуск марки «Ракета».</div>
+        <div class="timeline-item"><strong>1980-е</strong> — Мощность 4.5 млн экз./год, 8 000 сотрудников.</div>
+        <div class="timeline-item"><strong>2009</strong> — Реструктуризация, приглашение швейцарских мастеров.</div>
+        <div class="timeline-item"><strong>2010</strong> — Открыта Школа часовщика «Ракета».</div>
+        <div class="timeline-item"><strong>2015</strong> — Установлен крупнейший часовой механизм в мире.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <ul>
+        <li>Наручные часы «Ракета», «Победа», «Звезда»;</li>
+        <li>Морские и авиационные хронометры;</li>
+        <li>Точные часовые механизмы для других брендов;</li>
+        <li>Ремонт и реставрация антикварных часов;</li>
+        <li>Обучение часовщиков в Школе «Ракета».</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Галерея</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/petrodvorets_photos/granil.jpg" alt="Гранильная фабрика XVIII в." />
+          <figcaption>Каменная фабрика (1778)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/petrodvorets_photos/watch.jpg" alt="Часы Ракета" />
+          <figcaption>Наручные часы «Ракета»</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/petrodvorets_photos/museum.jpg" alt="Музей завода" />
+          <figcaption>Музей и экспозиция механизмов</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/petrodvorets_photos/school.jpg" alt="Школа часовщика" />
+          <figcaption>Школа часовщика «Ракета» (2010)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section>
+      <h2>Современность</h2>
+      <p>
+        Завод расположен в историческом корпусе и выпускает до 200 000 часов в год. Современный портфель — мужские и женские модели, ограниченные серии, коллаборации с дизайнерами, а также реставрация винтажных механизмов.
+      </p>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(s => {
+        if (s.getBoundingClientRect().top < trigger) s.classList.add('visible');
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.onscroll = () => scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    function toggleTimeline() {
+      const tl = document.getElementById('timeline');
+      tl.style.display = tl.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
