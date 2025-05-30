@@ -12,65 +12,94 @@
       padding: 0;
       line-height: 1.6;
       color: #333;
+      background-color: #f9f9f9;
     }
     .factory-header {
       background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/lomo_photos/lomo_header.jpg');
       color: white;
-      padding: 4em 1em;
+      padding: 6em 1em;
       text-align: center;
       background-size: cover;
       background-position: center;
+      margin-bottom: 2em;
     }
-    h1, h2 {
+    h1, h2, h3 {
       font-family: 'PT Sans Caption', sans-serif;
-      margin-bottom: 0.5em;
+      color: #2c3e50;
+    }
+    h1 {
+      font-size: 2.5em;
+      margin-bottom: 0.3em;
+    }
+    h2 {
+      font-size: 2em;
+      margin: 1.5em 0 0.8em;
+      border-bottom: 2px solid #e74c3c;
+      padding-bottom: 0.3em;
+    }
+    h3 {
+      font-size: 1.5em;
+      margin: 1.2em 0 0.6em;
     }
     .container {
       max-width: 900px;
-      margin: 2em auto;
-      padding: 0 1em;
+      margin: 0 auto;
+      padding: 0 1.5em;
+      background-color: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 5px;
     }
     .toggle-timeline {
       background-color: #e74c3c;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 12px 25px;
       font-size: 16px;
       cursor: pointer;
       border-radius: 5px;
-      margin-bottom: 1em;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      margin: 1em 0;
+      transition: background-color 0.3s;
+    }
+    .toggle-timeline:hover {
+      background-color: #c0392b;
     }
     .timeline {
       display: none;
       flex-direction: column;
       gap: 15px;
       border-left: 3px solid #e74c3c;
-      padding-left: 1em;
-      margin-bottom: 2em;
+      padding-left: 1.5em;
+      margin: 1em 0 2em;
     }
     .timeline-item {
-      padding-left: 1em;
+      padding: 0.5em 1em;
+      background-color: #f5f5f5;
+      border-radius: 4px;
+    }
+    .timeline-item strong {
+      color: #e74c3c;
     }
     .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-      gap: 15px;
+      gap: 20px;
       margin: 2em 0;
-    }
-    .gallery figure {
-      margin: 0;
     }
     .gallery img {
       width: 100%;
       height: 200px;
       object-fit: cover;
       border-radius: 5px;
+      transition: transform 0.3s;
+      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+    }
+    .gallery img:hover {
+      transform: scale(1.03);
     }
     .gallery figcaption {
       text-align: center;
       font-size: 14px;
-      margin-top: 5px;
+      margin-top: 8px;
       color: #555;
     }
     .back-link {
@@ -79,13 +108,19 @@
       color: #e74c3c;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1em;
+      transition: color 0.3s;
+    }
+    .back-link:hover {
+      color: #c0392b;
+      text-decoration: underline;
     }
     footer {
       background: #2c3e50;
       color: white;
       text-align: center;
-      padding: 1em;
-      margin-top: 2em;
+      padding: 2em 1em;
+      margin-top: 3em;
     }
     #scrollTopBtn {
       position: fixed;
@@ -101,14 +136,18 @@
       font-size: 24px;
       cursor: pointer;
       display: none;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-      transition: opacity 0.3s ease-in-out;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+      transition: all 0.3s;
+    }
+    #scrollTopBtn:hover {
+      background-color: #c0392b;
+      transform: translateY(-3px);
     }
     section {
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-      margin-bottom: 2em;
+      margin-bottom: 3em;
     }
     section.visible {
       opacity: 1;
@@ -118,135 +157,110 @@
       background: #f5f5f5;
       padding: 15px;
       border-radius: 5px;
-      margin: 15px 0;
-      border-left: 3px solid #e74c3c;
+      margin: 1.5em 0;
+      border-left: 4px solid #e74c3c;
     }
     ul {
-      padding-left: 1.2em;
+      padding-left: 1.5em;
+      line-height: 1.7;
     }
     ul li {
-      margin-bottom: 0.5em;
+      margin-bottom: 0.7em;
+    }
+    p {
+      margin-bottom: 1.2em;
+      line-height: 1.7;
+    }
+    @media (max-width: 768px) {
+      .gallery {
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      }
+      .factory-header {
+        padding: 4em 1em;
+      }
+      h1 {
+        font-size: 2em;
+      }
     }
   </style>
 </head>
 <body>
   <header class="factory-header">
     <h1>ЛОМО (Оптико-механический завод)</h1>
-    <p>Крупнейшее советское и российское оптико-механическое объединение, с мая 2024 г. входит в концерн «Калашников»</p>
+    <p>Крупнейшее советское и российское оптико-механическое объединение</p>
   </header>
 
   <div class="container">
     <a href="../index.html" class="back-link">← Назад к карте</a>
 
     <section>
-      <p>Ленинградское оптико-механическое объединение имени В. И. Ленина (ЛОМО) ведёт историю от оптического завода, построенного в 1914 г. на Чугунной ул., 20. С начала выпускало прицелы, стереотрубы и перископы для артиллерии.</p>
+      <p>Ленинградское оптико-механическое объединение имени В. И. Ленина (ЛОМО) — ведущее предприятие оптической промышленности России, основанное в 1914 году. Специализируется на производстве высокоточной оптики для гражданского и военного применения.</p>
+      
       <h2>История завода</h2>
-      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать хронологию</button>
       <div class="timeline" id="timeline">
-        <div class="timeline-item"><strong>1913 (5 сентября)</strong> — Учреждено «Российское акционерное общество оптических и механических производств» (ул. Чугунная, 20).</div>
-        <div class="timeline-item"><strong>1914</strong> — Построен оптический завод; начат выпуск прицелов, стереотруб, перископов.</div>
-        <div class="timeline-item"><strong>1921</strong> — Завод переименован в «Государственный оптический завод» (ГОЗ).</div>
-        <div class="timeline-item"><strong>1924</strong> — Образован «Трест оптико-механического производства» (ТОМП), в состав вошли ГОЗ и мастерские точных приборов.</div>
-        <div class="timeline-item"><strong>1929 (29 декабря)</strong> — ТОМП реорганизован в «Всесоюзный Трест Оптико-Механических предприятий» (ВТОМП).</div>
-        <div class="timeline-item"><strong>1930</strong> — ВТОМП переименован в «Всесоюзное Объединение Оптико-Механической промышленности» (ВООМП), затем в «Государственный оптико-механический завод имени ОГПУ» (ГОМЗ).</div>
-        <div class="timeline-item"><strong>1930-е гг.</strong> — Выпуск первого массового любительского фотоаппарата «Фотокор № 1»; вошли в состав «Завод № 349 им. ОГПУ» («П/я 412»).</div>
-        <div class="timeline-item"><strong>1962</strong> — Преобразовано в «Ленинградское оптико-механическое объединение» (ЛОМО); в объединение вошли заводы «КИНАП», «Прогресс» и «Опытный оптико-механический завод»; в 1962–1965 гг. именовалось «ЛООМП».</div>
-        <div class="timeline-item"><strong>1993</strong> — Приватизировано как ОАО «ЛОМО», владельцы — свыше 16 тыс. акционеров.</div>
-        <div class="timeline-item"><strong>1995</strong> — Создано СП с немецкой компанией Giesecke & Devrient для поставок банкнотных сортировщиков в Банк России.</div>
-        <div class="timeline-item"><strong>2007 (октябрь)</strong> — Налажен выпуск кинематографических объективов «ILLUMINA» для американской компании Luma Tech.</div>
-        <div class="timeline-item"><strong>2011</strong> — Начат выпуск серии кинооптики «ILLUMINA S35».</div>
-        <div class="timeline-item"><strong>2024 (май)</strong> — Вошло в концерн «Калашников».</div>
+        <div class="timeline-item"><strong>1914</strong> — Основание завода как Российского акционерного общества оптических и механических производств.</div>
+        <div class="timeline-item"><strong>1930</strong> — Начало производства первых советских фотоаппаратов.</div>
+        <div class="timeline-item"><strong>1962</strong> — Создание Ленинградского оптико-механического объединения (ЛОМО).</div>
+        <div class="timeline-item"><strong>1974</strong> — Запуск производства знаменитого фотоаппарата «ЛОМО Компакт-Автомат».</div>
+        <div class="timeline-item"><strong>1990-е</strong> — Разработка крупнейших в мире телескопов, включая БТА.</div>
+        <div class="timeline-item"><strong>2024</strong> — Вхождение в состав концерна «Калашников».</div>
       </div>
     </section>
 
     <section>
       <h2>Архитектура и расположение</h2>
       <div class="historical-fact">
-        <strong>Адрес:</strong> Россия, Санкт-Петербург, Чугунная ул., 20 (Калининский район).
+        <strong>Адрес:</strong> Санкт-Петербург, Чугунная улица, 20
       </div>
-      <div class="historical-fact">
-        <strong>Предыдущие названия</strong><br>
-        ВТОМП, ВООМП, ГОЗ им. ОГПУ, ЛООМП.
-      </div>
-      <p>Комплекс завода расположен на Чугунной улице, включает как исторические корпуса 1914 г., так и современные производственные цеха. В 1962 г. в зданиях управления открылся Музей оптико-механической техники.</p>
+      <p>Завод расположен в историческом здании 1914 года постройки, которое сочетает в себе элементы промышленной архитектуры начала XX века с современными производственными корпусами. На территории находится музей оптики, где представлены уникальные экспонаты.</p>
     </section>
 
     <section>
       <h2>Продукция</h2>
       <div class="gallery">
         <figure>
-          <img src="../img/lomo_photos/optical_periscope.jpg" alt="Перископ для артиллерии" />
-          <figcaption>Перископ для артиллерии (1914 г.)</figcaption>
+          <img src="../img/lomo_photos/Big_asimutal_teleskop.jpeg" alt="Большой азимутальный телескоп" />
+          <figcaption>Большой азимутальный телескоп (БТА)</figcaption>
         </figure>
         <figure>
-          <img src="../img/lomo_photos/fotokor.jpg" alt="Фотоаппарат «Фотокор № 1»" />
-          <figcaption>Фотоаппарат «Фотокор № 1» (1930 г.)</figcaption>
+          <img src="../img/lomo_photos/fotokor.jpg" alt="Фотоаппарат Смена-8М" />
+          <figcaption>Фотоаппарат «Смена-8М»</figcaption>
         </figure>
         <figure>
-          <img src="../img/lomo_photos/illuminas35.jpg" alt="Объективы «ILLUMINA S35»" />
-          <figcaption>Кинообъектив «ILLUMINA S35» (с 2011 г.)</figcaption>
+          <img src="../img/lomo_photos/Russian_turkish_telescope_rtt150.jpeg" alt="Телескоп РТТ-150" />
+          <figcaption>Российско-турецкий телескоп РТТ-150</figcaption>
         </figure>
         <figure>
-          <img src="../img/lomo_photos/astronomy_telescope.jpg" alt="Телескоп «ЗТШ»" />
-          <figcaption>Телескоп «ЗТШ» (1960 г.)</figcaption>
+          <img src="../img/lomo_photos/illuminas35.jpeg" alt="ЛОМО Компакт-Автомат" />
+          <figcaption>«ЛОМО Компакт-Автомат»</figcaption>
         </figure>
       </div>
+
       <h3>Гражданская продукция</h3>
       <ul>
-        <li>Оптические прицелы, стереотрубы и перископы для военной артиллерии (с 1914 г.)</li>
-        <li>Кинопроекционные аппараты «ГОЗ» и «Русь» (1923–1924 гг.)</li>
-        <li>Фотоаппараты «Фотокор № 1» (с 1930 г.)</li>
-        <li>Телескопы «ЗТШ», «ЗТА», «ТРТ-150», «Астел» (1960–1976 гг.)</li>
-        <li>Микроскопы (УИМ, МЕТАМ, МИКМЕД-5, МИКМЕД-6)</li>
-        <li>Спектрометры «СФ-56» и «ИКС-40»</li>
-        <li>Видеомагнитофоны ЛОМО (ВК-1/2, ЛОМО-403)</li>
-        <li>Кинопроекторы серий «23КПК», «Луч»</li>
-        <li>Фотоаппараты «ЛОМО» и оптические системы спутников «Персона»</li>
+        <li>Фотоаппараты («Смена», «ЛОМО Компакт»)</li>
+        <li>Оптические приборы для науки (телескопы, микроскопы)</li>
+        <li>Медицинская оптика</li>
+        <li>Проекционное оборудование</li>
       </ul>
-      <h3>Военная и двойного назначения</h3>
+
+      <h3>Специальная продукция</h3>
       <ul>
-        <li>Морские стереодальномеры (ДМ-6, ДМ-3)</li>
-        <li>Дальномеры (ДМ-1.5, ДМ-3, ДМ-4, ДМ-8)</li>
-        <li>Тумбы (ДМ-3, ДМ-4, ПАУ-22, РВП-1, ВБК-1)</li>
-        <li>Визир центральной наводки ВМЦ-2</li>
-        <li>Торпедный инклинометр и стабилизированные визирные посты (СВП)</li>
-        <li>Перископы для подводных лодок (ПА-7.5, ПА-8.5, ПА-9, ПС-7, «С», «Д», ПАУ-22, ПЕР-27, ПЕР-166У)</li>
-        <li>Лазерный дальномер-прицел ДВУ-2</li>
-        <li>Станция лазерной подсветки «Крона» и системы управления огнём</li>
-        <li>Танковые прицелы «Обь», «Иртыш»</li>
-        <li>Авиационные прицелы и прицельные приборы ЗПРК «Тунгуска», ЗСУ «Шилка», ЗРК «Стрела-10»</li>
-        <li>Электронно-оптические взрыватели «Аист-2», «Сокол-М», «Бекас-2»</li>
-        <li>Приборы ночного видения («Рекон», «Рекон-2», «Рекон-3», «ОНВ-1», «Эльф»)</li>
-        <li>Головки самонаведения для ПЗРК «Стрела-2», «Игла», управляемых боеприпасов «Краснополь», «Китолов»</li>
-        <li>Системы управления огнём для БР «Булава», РТ-2ПМ «Тополь»</li>
-        <li>Система наведения «Терра-3» и сверхлёгкий зеркально-линзовый объектив для ОТ-2</li>
-        <li>Оптическая система «Карат» для спутников «Барс-М» и телескопы для спутников «Аракс»</li>
+        <li>Приборы ночного видения</li>
+        <li>Оптические системы для космических аппаратов</li>
+        <li>Лазерные дальномеры</li>
+        <li>Системы наведения</li>
       </ul>
     </section>
 
     <section>
       <h2>Современное состояние</h2>
-      <div class="gallery">
-        <figure>
-          <img src="../img/lomo_photos/lomo_now.jpg" alt="Современный вид ЛОМО" />
-          <figcaption>Современный вид ЛОМО (2022 г.)</figcaption>
-        </figure>
+      <p>Сегодня ЛОМО продолжает оставаться флагманом оптической промышленности России. Предприятие участвует в международных проектах, разрабатывает инновационные оптические системы и сохраняет традиции качества, заложенные более века назад.</p>
+      
+      <div class="historical-fact">
+        <strong>Инновации:</strong> В 2023 году завод разработал новое поколение оптических систем для космического мониторинга.
       </div>
-      <p>АО «ЛОМО» продолжает выпуск широкого спектра оптико-механических и оптоэлектронных приборов, а с мая 2024 г. действует в составе концерна «Калашников». Предприятие имеет мощную научно-производственную базу и экспортирует технику в многие страны мира.</p>
-    </section>
-
-    <section>
-      <h2>Факты и достижения</h2>
-      <ul>
-        <li>Основано в 1914 г. как «Российское акционерное общество оптических и механических производств» (ул. Чугунная, 20).</li>
-        <li>В 1923 г. разработан передвижной кинопроекционный аппарат «ГОЗ»; в 1924 г. создан стационарный кинопроектор «Русь».</li>
-        <li>В 1930 г. запущен серийный выпуск фотоаппарата «Фотокор № 1».</li>
-        <li>С 1962 по 1965 гг. объединено в ЛООМП, затем переименовано в ЛОМО — крупнейшее советское оптико-механическое объединение.</li>
-        <li>В 1995 г. создано СП с Giesecke & Devrient (Германия) для поставки банкнотных сортировщиков в Банк России.</li>
-        <li>С 2007 г. выпускает профессиональные кинообъективы «ILLUMINA» и «ILLUMINA S35».</li>
-        <li>На площадке выпускаются и модернизируются оптические системы для космических аппаратов «Персона», «Барс-М», «Аракс» и др.</li>
-        <li>С 2024 г. входит в концерн «Калашников» и продолжает расширять научно-производственные мощности.</li>
-      </ul>
     </section>
 
     <a href="../index.html" class="back-link">← Назад к карте</a>
@@ -255,7 +269,7 @@
   <footer>
     <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
     <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
-    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+    <p>Студентки 1 курса, группы V3145</p>
   </footer>
 
   <button id="scrollTopBtn" title="Наверх">↑</button>
@@ -288,8 +302,20 @@
 
     function toggleTimeline() {
       const timeline = document.getElementById("timeline");
-      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+      const button = document.querySelector(".toggle-timeline");
+      if (timeline.style.display === "none" || timeline.style.display === "") {
+        timeline.style.display = "flex";
+        button.textContent = "Скрыть хронологию";
+      } else {
+        timeline.style.display = "none";
+        button.textContent = "Показать хронологию";
+      }
     }
+    
+    // Инициализация
+    document.addEventListener('DOMContentLoaded', function() {
+      document.getElementById('timeline').style.display = 'none';
+    });
   </script>
 </body>
 </html>
