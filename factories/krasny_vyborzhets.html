@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Завод «Красный Выборжец» | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/krasny_vyborzhets_photos/krasny_header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Завод «Красный Выборжец»</h1>
+    <p>Предприятие по обработке цветных металлов, выпускающее свыше 12 000 наименований проката</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>Завод «Красный Выборжец» (до 1922 года — «Розенкранц») основан в 1857 году Ф. Ф. Гошем на правом берегу Невы. С 1922 г. носит современное название. Специализируется на выпуске листового, круглого и профильного проката из меди, латуни, бронзы и медно-никелевых сплавов.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1857</strong> — Ф. Ф. Гош получает участок на Выборгской стороне и разрешение на постройку завода «для приготовления железных и медных непаянных труб» :contentReference[oaicite:1]{index=1}.</div>
+        <div class="timeline-item"><strong>1863</strong> — Купец К. Ф. Розенкранц выкупает завод, расширяет его, устанавливает паровую машину и новое прокатное оборудование.</div>
+        <div class="timeline-item"><strong>1877–1878</strong> — Во время Русско-турецкой войны завод выпускает латунную ленту для артиллерийских и оружейных гильз.</div>
+        <div class="timeline-item"><strong>1880–1881</strong> — В период экономического кризиса завод акционируется; входит в синдикат меднопрокатных предприятий и получает статус «С.-Петербургское общество меднопрокатного и трубного завода бывш. Розенкранц».</div>
+        <div class="timeline-item"><strong>1903</strong> — Вступил в строй первый в России участок электролитического рафинирования меди с суточной производительностью 24 т и чистотой 99,99 %.</div>
+        <div class="timeline-item"><strong>1916</strong> — В годы Первой мировой войны производство выросло: выпущено 23 612 т продукции против 10 460 т в 1914 г. :contentReference[oaicite:2]{index=2}.</div>
+        <div class="timeline-item"><strong>1918–1921</strong> — Производство остановлено в годы революции и Гражданской войны, затем восстановлено: к концу 1921 г. налажен выпуск листовой меди, труб и мельхиора.</div>
+        <div class="timeline-item"><strong>1922 (1 июля)</strong> — Завод входит в трест «Госпромцветмет»; с 7 ноября получает название «Петроградский (с 1924 г. Ленинградский) государственный медеперерабатывающий завод „Красный выборжец“».</div>
+        <div class="timeline-item"><strong>1924–1927</strong> — Создана линия по использованию низкосортного лома: получено и сдано в банк более 16 000 т катодной меди, 300 кг золота и 3500 кг серебра из шламов :contentReference[oaicite:3]{index=3}.</div>
+        <div class="timeline-item"><strong>1924</strong> — Открыт художественно-монументальный бронзо-литейный цех: впервые отлиты памятники В. Володарскому, Г. В. Плеханову и Ленину (Финляндский вокзал, Невский завод), а также 77 бюстов и 37 статуеток.</div>
+        <div class="timeline-item"><strong>1927 (15 марта)</strong> — На «Красном выборжце» заключён первый в СССР «договор о социалистическом соревновании» бригадой обрубщиков алюминия (инициатор М. Е. Путин) :contentReference[oaicite:4]{index=4}.</div>
+        <div class="timeline-item"><strong>1931–1935</strong> — Плавка латуней и бронз переведена на электрические печи; организован выпуск алюминиевой и латунной посуды, музыкальных инструментов.</div>
+        <div class="timeline-item"><strong>1941–1945</strong> — Во время ВОВ основное оборудование эвакуировано на Урал; оставшиеся цеха в Ленинграде изготавливали посуду, котелки и фляги для фронта; в труднейших условиях изготовлен вайербарс, по которому «Севкабель» проложил кабель под Ладожским озером.</div>
+        <div class="timeline-item"><strong>1954</strong> — Завод полностью восстановлен к довоенному уровню, освоено производство проката из медных жаропрочных сплавов для ракетостроения и сварочных электродов.</div>
+        <div class="timeline-item"><strong>1960–1970-е</strong> — Реконструкция: установлены современные прокатные станы, электроплавильные печи большой мощности с электрошлаковым переплавом, участок вакуумных печей для жаропрочных сплавов. Введён прокатный стан «Дуо 1100×4000», единственный в России, для крупногабаритного медного проката.</div>
+        <div class="timeline-item"><strong>1976–1989</strong> — Входил в состав ПО «Красный выборжец» как «Завод по производству алюминиевой фольги»; выпустил более 12 000 наименований продукции (листы, ленты, трубы, профили) для судостроения, энергетики, космической и атомной промышленности.</div>
+        <div class="timeline-item"><strong>1957, 1967, 1974, 1975</strong> — Награждён орденом Ленина (31 авг. 1957), Почётными знаками ВС и СМ СССР, занесён в Книгу Почёта; коллектив отмечен Красным знаменем ЦК КПСС (1967, 1974, 1975).</div>
+        <div class="timeline-item"><strong>1992–1996</strong> — Преобразован в ОАО «Завод „Красный выборжец“». В 2000 г. вошёл в «Норильский никель», затем сменился контроль и на начале 2000-х возникли конфликты между кредиторами и владельцами.</div>
+        <div class="timeline-item"><strong>2008–2016</strong> — Завод получил участок 4,4 га в промзоне «Рыбацкое» для переноса; завершено решение выноса из исторической зоны Петербурга (планы жилья на 25 га освободившейся территории). Памятник Ленину демонтирован в 2015 году и передан музею в Разливе.</div>
+        <div class="timeline-item"><strong>2015</strong> — Внесён в ЕГРН в качестве объекта культурного наследия «Комплекс построек Медно-прокатного и трубного завода „Розенкранц“» (рег. № 10-580 от 04.12.2015) :contentReference[oaicite:5]{index=5}.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Архитектура и расположение</h2>
+      <div class="historical-fact">
+        <strong>Адрес:</strong> Свердловская набережная, 12 (Калининский район), 195009, Санкт-Петербург :contentReference[oaicite:6]{index=6}.
+      </div>
+      <div class="historical-fact">
+        <strong>Комплекс зданий</strong><br>
+        Включает корпуса XIX века (дом управляющего — лит. Б, архитектор А. Н. Бенуа (?) конец XVIII в. с прист 1912 г., инженер Н. А. Морозов) и последующих эпох. В 2001 г. комплекс признан региональным памятником культуры «Медно-прокатного и трубного завода „Розенкранц“» (с 1922 г. «Красный выборжец») :contentReference[oaicite:7]{index=7}.
+      </div>
+      <p>Завод расположен на берегу Невы в историческом промышленном квартале. Территория ограничена Свердловской набережной, Арсенальной ул. и Минеральной ул. Многие корпуса сохраняют кирпичную архитектуру XIX века; в 1970 г. установлена мемориальная доска соцсоревнования (1929 г.).</p>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/krasny_vyborzhets_photos/copper_rolling.jpg" alt="Медный прокат" />
+          <figcaption>Прокат меди и латунных сплавов</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/krasny_vyborzhets_photos/electrorefining.jpg" alt="Электролитическое рафинирование" />
+          <figcaption>Участок электролитического рафинирования меди (1903 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/krasny_vyborzhets_photos/vacuum_furnace.jpg" alt="Вакуумные плавильные печи" />
+          <figcaption>Вакуумные плавильные печи для жаропрочных сплавов (1960-е гг.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/krasny_vyborzhets_photos/large_ingots.jpg" alt="Крупные слитки" />
+          <figcaption>Слитки диаметром до 510 мм для крупногабаритного проката</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>Листовой и круглый прокат из меди, латуни, бронзы, медно-никелевых сплавов</li>
+        <li>Плоский прокат: листы, ленты, плиты, аноды, полосы</li>
+        <li>Круглый прокат: прутки, прутки профильные</li>
+        <li>Трубопрокат: трубы из меди и медных сплавов (мельхиор, латунь)</li>
+        <li>Слитки различных марок: для горячего/холодного проката, вакуумно- и электрошлакового переплава</li>
+        <li>Жаропрочные медные сплавы для ракетостроения и сварочных электродов</li>
+        <li>Элементы для судостроения: топки, теплообменники, гребные винты (XIX в.)</li>
+        <li>Специальные профили для электростанций (Саяно-Шушенская ГЭС, Ленинский атомоход «Ленин»)</li>
+        <li>Экспериментальная алюминиевая посуда и музыкальные инструменты (1923–1925 гг.)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/krasny_vyborzhets_photos/krasny_now.jpg" alt="Современный вид завода" />
+          <figcaption>Современный вид завода «Красный Выборжец»</figcaption>
+        </figure>
+      </div>
+      <p>В начале 2000-х завод вошёл в структуру «Норильского никеля», затем перешёл под контроль новых владельцев, что вызвало конфликт кредиторов. С 2015 г. часть исторической площадки передана под жилищное строительство (проект БФА-Девелопмент). Территория — объект культурного наследия регионального значения с комплексом архитектурных построек XIX–XX вв.</p>
+    </section>
+
+    <section>
+      <h2>Факты и достижения</h2>
+      <ul>
+        <li>В 1872 г. завод перешёл к К. Э. Розенкранцу и получил известность в России и за рубежом.</li>
+        <li>В 1903 г. введён первый в России участок электролитического рафинирования меди (суточная мощность 24 т) :contentReference[oaicite:8]{index=8}.</li>
+        <li>В 1929 г. на заводе заключён первый в СССР договор соцсоревнования (обрубщики алюминия). Мемориальная доска — лит. А на Свердловской наб., 12.</li>
+        <li>В 1931–1935 гг. на заводе осуществлён переход плавки цветных металлов на электропечи; организован выпуск алюминиевой и латунной посуды.</li>
+        <li>В 1941 г. часть оборудования эвакуирована на Урал; оставшиеся цеха выпускали котелки и фляги для обороны Ленинграда; изготовлен вайербарс для кабеля под Ладожским озером.</li>
+        <li>В 1957, 1967, 1974, 1975 гг. награждён орденом Ленина, Красным знаменем ЦК КПСС и другими наградами за заслуги в цветной металлургии.</li>
+        <li>В 1960–1970 гг. завоёван статус монополиста по прокату медных жаропрочных сплавов для ракето- и самолётостроения.</li>
+        <li>В 2015 г. включён в ЕГРН как объект культурного наследия регионального значения «Комплекс построек Медно-прокатного и трубного завода „Розенкранц“» :contentReference[oaicite:9]{index=9}.</li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
