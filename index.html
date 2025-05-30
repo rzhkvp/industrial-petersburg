@@ -459,7 +459,19 @@
   industry: 'weapons',
   description: 'АО «Ленинградский Северный завод» — одно из старейших акционерных предприятий России. Основан в 1878 г.; с 1932 г. специализируется на авиационной и зенитно-ракетной технике (Илья Муромец, С-17, По-2, Як-18; с 1958 г. — ракеты для С-75, С-200, С-300П). После спада 90-х возобновил ГОЗ-заказы с 2017 г. и сегодня динамично развивается.',
   image: 'img/lenseverny_photos/lenseverny_header.jpg'
+},
+
+  {
+  name: 'Завод «Ленинец»',
+  coords: [59.927200, 30.320950], // Большой пр. П.С., д. 18, Санкт-Петербург :contentReference[oaicite:0]{index=0}
+  link: 'factories/leninec.html',
+  startYear: 1930,
+  endYear: null,
+  industry: 'electronics',
+  description: '«Ленинец» — российский оборонный холдинг. С 1967 г. — завод № 287 → Ленинградский гос. завод «Ленинец», с 1976 г. — НПО «Ленинец», в 1995—2012 гг. — ХК «Ленинец». Разработал системы С-75, С-200, С-300, гиперзвуковой аппарат «Аякс». С середины 2010-х холдинг приватизирован семьёй Турчаковых и арендует активы.',
+  image: 'img/leninec_photos/leninec_header.jpg'
 }
+
 
 
 
@@ -523,15 +535,14 @@ function getIconForIndustry(industry) {
     'textile': 'red',
     'metal': 'orange',
     'machinery': 'green',
-    'electronics': 'purple',
-    'chemicals': 'cadetblue',
-    'food': 'darkred',
+    'electronics': 'green',
+    'chemicals': 'yellow',
+    'food': 'red',
     'printing': 'black',
-    'optics': 'violet',
-    'weapons': 'darkblue',
+    'optics': 'black',
+    'weapons': 'blue',
     'mint': 'yellow'
   };
-
   return L.icon({
     iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[industry] || 'grey'}.png`,
     shadowUrl: 'https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.7.1/images/marker-shadow.png',
