@@ -694,7 +694,6 @@
 
     let currentMarkers = []; 
 
-// Обновлённый список отраслей
 let activeIndustries = [
   'shipbuilding',       // судостроение
   'textile',            // текстиль
@@ -706,7 +705,8 @@ let activeIndustries = [
   'printing',           // полиграфия
   'optics',             // оптико-механическая
   'weapons',             // вооружение
-  'mint'
+  'mint',
+  'ceramics'
 ];
 
 function updateMap(year) {
@@ -751,6 +751,7 @@ function getIconForIndustry(industry) {
     'optics': 'black',
     'weapons': 'blue',
     'mint': 'yellow'
+    'ceramics' : 'violet' 
   };
   return L.icon({
     iconUrl: `https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-${iconColors[industry] || 'grey'}.png`,
