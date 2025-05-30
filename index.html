@@ -109,108 +109,7 @@
 
     // Данные о заводах
     const factories = [
-      {
-  name: 'Балтийский завод',
-  coords: [59.922, 30.244], // Координаты Косой линии, 16
-  link: 'factories/baltic.html',
-  startYear: 1856,
-  endYear: null,
-  industry: 'shipbuilding',
-  description: 'Флагман отечественного кораблестроения, строитель атомных ледоколов и военных кораблей.',
-  image: 'img/baltic_photos/panorama.jpeg'
-},
-      {
-  name: 'Красное знамя',
-  coords: [59.960, 30.295],
-  link: 'factories/krasnoe_znamya.html',
-  startYear: 1855,
-  endYear: 2000,
-  industry: 'textile',
-  description: 'Крупнейшая трикотажная фабрика России и СССР.',
-  image: 'img/krasnoe_znamya_photos/glav.jpeg'
-},
-      {
-  name: 'Ленинградский Металлический завод',
-  coords: [59.955, 30.400], // Примерные координаты
-  link: 'factories/lmz.html',
-  startYear: 1857,
-  endYear: null,
-  industry: 'metal',
-  description: 'Основан в 1857 году - производитель турбин, корабельных орудий и энергетического оборудования.',
-  image: 'img/lmz_photos/history_about_img.jpeg'
-},
-    {
-        name: 'Красный треугольник',
-        coords: [59.914, 30.295],
-        link: 'factories/krasny.html',
-        startYear: 1860,
-        endYear: 2004,
-        industry: 'textile',
-        description: 'Крупнейшее в России предприятие по производству резиновых изделий.',
-        image: 'img/krasny_photos/old.webp'
-      },
-      {
-        name: 'Путиловский завод',
-        coords: [59.901, 30.256],
-        link: 'factories/putilovsky.html',
-        startYear: 1801,
-        endYear: null,
-        industry: 'metal',
-        description: 'Основан как чугунолитейный завод, позднее - крупный машиностроительный комплекс.',
-        image: 'img/putilovsky.jpg'
-      },
-  {
-  name: 'Невский судостроительный завод',
-  coords: [59.925, 30.400], // Примерные координаты
-  link: 'factories/nevsky_shipyard.html',
-  startYear: 1857,
-  endYear: null,
-  industry: 'shipbuilding',
-  description: 'Основан в 1857 году - производил суда, паровозы, а ныне - энергетическое оборудование.',
-  image: 'img/nevsky_shipyard_photos/zda.jpeg'
-},
-      {
-  name: 'Адмиралтейские верфи',
-  coords: [59.9295, 30.2910], // координаты приблизительно напротив Адмиралтейства
-  link: 'factories/admiralteyskie_verfi.html',
-  startYear: 1704,
-  endYear: null,
-  industry: 'shipbuilding',
-  description: 'Первое промышленное предприятие Санкт-Петербурга. Лидер в судостроении с 1704 года.',
-  image: 'img/admiralteyskie.jpg'
-},
-      {
-  name: 'Сименс-Гальске (Севкабель)',
-  coords: [59.931, 30.260], // Координаты Васильевского острова
-  link: 'factories/siemens.html',
-  startYear: 1853,
-  endYear: null,
-  industry: 'metal',
-  description: 'Первый кабельный завод России, основанный компанией Siemens & Halske.',
-  image: 'img/siemens_photos/old_.jpeg'
-},
-{
-  name: 'Императорский фарфоровый завод',
-  coords: [59.9348, 30.4481],  // приблизительные координаты рядом с ИФЗ
-  link: 'factories/imperatorsky_farforovy.html',
-  startYear: 1744,
-  endYear: null,
-  industry: 'ceramics',
-  description: 'Первый в России фарфоровый завод, основан в 1744 году. Производит художественный и костяной фарфор.',
-  image: 'img/farfor.jpg'
-},
-
-      {
-        name: 'Невская мануфактура',
-        coords: [59.928, 30.414],
-        link: 'factories/nevskaya.html',
-        startYear: 1841,
-        endYear: null,
-        industry: 'textile',
-        description: 'Одна из первых и крупнейших текстильных фабрик Российской империи.',
-        image: 'img/nevskaya.jpg'
-      },
-      {
+#1    {
         name: 'Завод Чарльза Берда',
         coords: [59.924190, 30.274204],
         link: 'factories/berd.html',
@@ -220,57 +119,57 @@
         description: 'Первый в России частный механический и литейный завод. Производил паровые машины, пароходы, архитектурный декор.',
         image: 'img/berd.jpg'
       },
-            {
-  name: 'Александровский завод',
-  coords: [59.902, 30.426], // Координаты по адресу пр. Обуховской Обороны
-  link: 'factories/alexandrovsky.html',
-  startYear: 1824,
+ #2   {
+  name: 'Адмиралтейские верфи',
+  coords: [59.9295, 30.2910], // координаты приблизительно напротив Адмиралтейства
+  link: 'factories/admiralteyskie_verfi.html',
+  startYear: 1704,
   endYear: null,
-  industry: 'metal',
-  description: 'Один из старейших заводов Петербурга, производивший паровозы, а ныне - судовое оборудование.',
-  image: 'img/alexandrovsky_photos/zavod.jpeg'
-},
-    {
-        name: 'Обуховский завод',
-        coords: [59.863165, 30.475885],
-        link: 'factories/obukhov.html',
-        startYear: 1863,
-        endYear: null,
-        industry: 'metal',
-        description: 'Крупнейший сталелитейный завод России. Производил броню для кораблей, артиллерийские орудия.',
-        image: 'img/obukhov_photos/obuhovsky.jpeg'
-      },
-      {
-        name: 'Александро-Невская мануфактура',
-        coords: [59.900601, 30.429577],
-        link: 'factories/an_manufaktura.html',
-        startYear: 1837,
-        endYear: 2003,
-        industry: 'textile',
-        description: 'Крупнейшее текстильное производство. Выпускало ситец, смесовые ткани.',
-        image: 'img/an_manufaktura.jpg'
-      },
-      {
-        name: 'Вагоностроительный завод им. И.Е. Егорова',
-        coords: [59.9213, 30.3175],
-        link: 'factories/egorov.html',
-        startYear: 1874,
-        endYear: null,
-        industry: 'metal',
-        description: 'Исторический вагоностроительный завод Санкт-Петербурга, выпускает вагоны для метрополитена и ж/д транспорта.',
-        image: 'img/egorov.jpg'
-      },
-      {
-    name: 'Александровская мануфактура',
-    coords: [59.9380, 30.3490],
-    link: 'factories/alex_manuf.html',
-    startYear: 1786,
-    endYear: 1875,
-    industry: 'textile',
-    description: 'Крупная хлопкоочистительная и ткацкая мануфактура, давшая начало целому району (Александровская слобода).',
-    image: 'img/alex_manuf.jpg'
-  },
-  {
+  industry: 'shipbuilding',
+  description: 'Первое промышленное предприятие Санкт-Петербурга. Лидер в судостроении с 1704 года.',
+  image: 'img/admiralteyskie.jpg'
+       },
+  #3   {
+  name: 'Императорский фарфоровый завод',
+  coords: [59.9348, 30.4481],  // приблизительные координаты рядом с ИФЗ
+  link: 'factories/imperatorsky_farforovy.html',
+  startYear: 1744,
+  endYear: null,
+  industry: 'ceramics',
+  description: 'Первый в России фарфоровый завод, основан в 1744 году. Производит художественный и костяной фарфор.',
+  image: 'img/farfor.jpg'
+    },
+  #4  {
+    name: 'Литейный двор',
+    coords: [59.9500, 30.2700],
+    link: 'factories/lit_dvor.html',
+    startYear: 1721,
+    endYear: 1800,
+    industry: 'metal',
+    description: 'Литейный и механический цех при Царскосельском дворе, поставлял пушки и колокола.',
+    image: 'img/lit_dvor.jpg'
+       },
+  #5   {
+    name: 'Партикулярная верфь',
+    coords: [59.9100, 30.2500],
+    link: 'factories/partikulyarnaya_verf.html',
+    startYear: 1833,
+    endYear: 1899,
+    industry: 'shipbuilding',
+    description: 'Частная верфь, строившая торговые суда и баржи.',
+    image: 'img/partikulyarnaya.jpg'
+       },
+   #6   {
+    name: 'Охтинский пороховой завод',
+    coords: [59.9380, 30.4388],
+    link: 'factories/okhta_zavod.html',
+    startYear: 1703,
+    endYear: 1860,
+    industry: 'chemical',
+    description: 'Первое пороховое производство в России, снабжало армию и флот.',
+    image: 'img/okhta.jpg'
+        },
+  #7    {
    name: 'Екатерингофский завод',
     coords: [59.897786, 30.261155],
     link: 'factories/ekaterinhof.html',
@@ -279,8 +178,18 @@
     industry: 'metal',
     description: 'Первый железоделательный и кузнечный завод на реке Екатерингофке, основан Петром I.',
     image: 'img/ekaterinhof.jpg'
-  },
-  {
+        },
+    #8  {
+    name: 'Сестрорецкий завод',
+    coords: [60.1460, 29.8425],
+    link: 'factories/sestroretsk.html',
+    startYear: 1721,
+    endYear: 1927,
+    industry: 'metal',
+    description: 'Оружейный и инструментальный завод на Сестрорецком озере.',
+    image: 'img/sestroretsk.jpg'
+        },
+    #9  {
     name: 'Ижорский завод',
     coords: [59.5320, 29.6458],
     link: 'factories/izhora.html',
@@ -290,7 +199,8 @@
     description: 'Крупнейшее машиностроительное и металлургическое предприятие на берегу Ижоры.',
     image: 'img/izhora.jpg'
   },
-  {
+
+    #10   {
     name: 'Казённый стеклянный завод',
     coords: [59.9350, 30.3500],
     link: 'factories/kazenny_steklo.html',
@@ -300,17 +210,9 @@
     description: 'Государственное стекольное производство для нужд флота и дворца.',
     image: 'img/kazenny_steklo.jpg'
   },
-  {
-    name: 'Литейный двор',
-    coords: [59.9500, 30.2700],
-    link: 'factories/lit_dvor.html',
-    startYear: 1721,
-    endYear: 1800,
-    industry: 'metal',
-    description: 'Литейный и механический цех при Царскосельском дворе, поставлял пушки и колокола.',
-    image: 'img/lit_dvor.jpg'
-  },
-  {
+  
+
+    #11    {
     name: 'Монетный двор',
     coords: [59.9660, 30.3210],
     link: 'factories/monet_dvor.html',
@@ -320,36 +222,146 @@
     description: 'Государственный монетный двор, чеканил медные, серебряные и золотые монеты.',
     image: 'img/monet_dvor.jpg'
   },
-  {
-    name: 'Охтинский пороховой завод',
-    coords: [59.9380, 30.4388],
-    link: 'factories/okhta_zavod.html',
-    startYear: 1703,
-    endYear: 1860,
-    industry: 'chemical',
-    description: 'Первое пороховое производство в России, снабжало армию и флот.',
-    image: 'img/okhta.jpg'
-  },
-  {
-    name: 'Партикулярная верфь',
-    coords: [59.9100, 30.2500],
-    link: 'factories/partikulyarnaya_verf.html',
-    startYear: 1833,
-    endYear: 1899,
-    industry: 'shipbuilding',
-    description: 'Частная верфь, строившая торговые суда и баржи.',
-    image: 'img/partikulyarnaya.jpg'
-  },
-  {
-    name: 'Сестрорецкий завод',
-    coords: [60.1460, 29.8425],
-    link: 'factories/sestroretsk.html',
-    startYear: 1721,
-    endYear: 1927,
-    industry: 'metal',
-    description: 'Оружейный и инструментальный завод на Сестрорецком озере.',
-    image: 'img/sestroretsk.jpg'
-  }
+  
+    #12   {
+    name: 'Александровская мануфактура',
+    coords: [59.9380, 30.3490],
+    link: 'factories/alex_manuf.html',
+    startYear: 1786,
+    endYear: 1875,
+    industry: 'textile',
+    description: 'Крупная хлопкоочистительная и ткацкая мануфактура, давшая начало целому району (Александровская слобода).',
+    image: 'img/alex_manuf.jpg'
+  },  
+
+    #13  {
+        name: 'Александро-Невская мануфактура',
+        coords: [59.900601, 30.429577],
+        link: 'factories/an_manufaktura.html',
+        startYear: 1837,
+        endYear: 2003,
+        industry: 'textile',
+        description: 'Крупнейшее текстильное производство. Выпускало ситец, смесовые ткани.',
+        image: 'img/an_manufaktura.jpg'
+      }, 
+
+    #14    {
+  name: 'Александровский чугунолитейный завод',
+  coords: [59.902, 30.426], // Координаты по адресу пр. Обуховской Обороны
+  link: 'factories/alexandrovsky.html',
+  startYear: 1824,
+  endYear: null,
+  industry: 'metal',
+  description: 'Один из старейших заводов Петербурга, производивший паровозы, а ныне - судовое оборудование.',
+  image: 'img/alexandrovsky_photos/zavod.jpeg'
+},  
+
+    #15    {
+  name: 'Балтийский завод',
+  coords: [59.922, 30.244], // Координаты Косой линии, 16
+  link: 'factories/baltic.html',
+  startYear: 1856,
+  endYear: null,
+  industry: 'shipbuilding',
+  description: 'Флагман отечественного кораблестроения, строитель атомных ледоколов и военных кораблей.',
+  image: 'img/baltic_photos/panorama.jpeg'
+},
+    
+    #16     {
+  name: 'Невский судостроительный завод',
+  coords: [59.925, 30.400], // Примерные координаты
+  link: 'factories/nevsky_shipyard.html',
+  startYear: 1857,
+  endYear: null,
+  industry: 'shipbuilding',
+  description: 'Основан в 1857 году - производил суда, паровозы, а ныне - энергетическое оборудование.',
+  image: 'img/nevsky_shipyard_photos/zda.jpeg'
+},
+
+    #17   {
+  name: 'Ленинградский Металлический завод',
+  coords: [59.955, 30.400], // Примерные координаты
+  link: 'factories/lmz.html',
+  startYear: 1857,
+  endYear: null,
+  industry: 'metal',
+  description: 'Основан в 1857 году - производитель турбин, корабельных орудий и энергетического оборудования.',
+  image: 'img/lmz_photos/history_about_img.jpeg'
+},
+
+    #18     {
+        name: 'Обуховский завод',
+        coords: [59.863165, 30.475885],
+        link: 'factories/obukhov.html',
+        startYear: 1863,
+        endYear: null,
+        industry: 'metal',
+        description: 'Крупнейший сталелитейный завод России. Производил броню для кораблей, артиллерийские орудия.',
+        image: 'img/obukhov_photos/obuhovsky.jpeg'
+      },
+
+    #19    {
+        name: 'Красный треугольник',
+        coords: [59.914, 30.295],
+        link: 'factories/krasny.html',
+        startYear: 1860,
+        endYear: 2004,
+        industry: 'textile',
+        description: 'Крупнейшее в России предприятие по производству резиновых изделий.',
+        image: 'img/krasny_photos/old.webp'
+      },
+
+    #20    {
+        name: 'Вагоностроительный завод им. И.Е. Егорова',
+        coords: [59.9213, 30.3175],
+        link: 'factories/egorov.html',
+        startYear: 1874,
+        endYear: null,
+        industry: 'metal',
+        description: 'Исторический вагоностроительный завод Санкт-Петербурга, выпускает вагоны для метрополитена и ж/д транспорта.',
+        image: 'img/egorov.jpg'
+      },
+
+    #21    {
+  name: 'Красное знамя',
+  coords: [59.960, 30.295],
+  link: 'factories/krasnoe_znamya.html',
+  startYear: 1855,
+  endYear: 2000,
+  industry: 'textile',
+  description: 'Крупнейшая трикотажная фабрика России и СССР.',
+  image: 'img/krasnoe_znamya_photos/glav.jpeg'
+},
+     
+
+    #22      {
+  name: 'Сименс-Гальске (Севкабель)',
+  coords: [59.924402, 30.242036], // Кожевенная линия, 40, Санкт-Петербург
+  link: 'factories/siemens.html',
+  startYear: 1853,
+  endYear: null,
+  industry: 'metal',
+  description: 'Первый кабельный завод России, основанный компанией Siemens & Halske.',
+  image: 'img/siemens_photos/old_.jpeg'
+}
+
+    #23   {
+  name: 'Кировский завод',
+  coords: [59.883333, 30.250000],
+  link: 'factories/kirov.html',
+  startYear: 1801,
+  endYear: null,
+  industry: 'машиностроение и металлургия',
+  description: 'Одно из старейших машиностроительных и металлургических предприятий России, расположенное между проспектом Стачек и рекой Екатерингофкой.',
+  image: 'img/kirov_photos/kirov_header.jpg'
+}
+
+    #24    
+    
+      
+    
+      
+      
 ];
 
     let currentMarkers = [];
