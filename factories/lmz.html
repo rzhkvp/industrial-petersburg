@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ленинградский Металлический завод | Индустриальный Петербург</title>
+  <title>Ленинградский металлический завод (ЛМЗ) | Индустриальный Петербург</title>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
   <style>
     body {
@@ -14,7 +14,7 @@
       color: #333;
     }
     .factory-header {
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/lmz_photos/history_about_img.jpeg');
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/lmz_photos/lmz_header.jpg');
       color: white;
       padding: 4em 1em;
       text-align: center;
@@ -23,6 +23,7 @@
     }
     h1, h2 {
       font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
     }
     .container {
       max-width: 900px;
@@ -46,41 +47,31 @@
       gap: 15px;
       border-left: 3px solid #e74c3c;
       padding-left: 1em;
+      margin-bottom: 2em;
     }
     .timeline-item {
       padding-left: 1em;
     }
     .gallery {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 20px;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
       margin: 2em 0;
     }
     .gallery figure {
       margin: 0;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
     }
     .gallery img {
       width: 100%;
-      height: 250px;
+      height: 200px;
       object-fit: cover;
       border-radius: 5px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-      cursor: pointer;
-      transition: transform 0.3s ease;
-    }
-    .gallery img:hover {
-      transform: scale(1.02);
     }
     .gallery figcaption {
       text-align: center;
       font-size: 14px;
-      margin-top: 8px;
-      padding: 5px;
-      background: #f5f5f5;
-      border-radius: 0 0 5px 5px;
+      margin-top: 5px;
+      color: #555;
     }
     .back-link {
       display: inline-block;
@@ -117,6 +108,7 @@
       opacity: 0;
       transform: translateY(30px);
       transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
     }
     section.visible {
       opacity: 1;
@@ -129,143 +121,114 @@
       margin: 15px 0;
       border-left: 3px solid #e74c3c;
     }
-    .full-img-container {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.9);
-      z-index: 1000;
-      justify-content: center;
-      align-items: center;
+    ul {
+      padding-left: 1.2em;
     }
-    .full-img {
-      max-width: 90%;
-      max-height: 90%;
-      object-fit: contain;
-    }
-    .close-full-img {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      color: white;
-      font-size: 40px;
-      cursor: pointer;
-    }
-    .img-caption {
-      position: absolute;
-      bottom: 20px;
-      color: white;
-      text-align: center;
-      width: 100%;
-      padding: 10px;
-      background: rgba(0,0,0,0.5);
+    ul li {
+      margin-bottom: 0.5em;
     }
   </style>
 </head>
 <body>
   <header class="factory-header">
-    <h1>Ленинградский Металлический завод</h1>
-    <p>Основан в 1857 году - один из старейших машиностроительных заводов России</p>
+    <h1>Ленинградский металлический завод (ЛМЗ)</h1>
+    <p>Советское и российское энергомашиностроительное предприятие, проектирующее и выпускающее турбины</p>
   </header>
 
   <div class="container">
     <a href="../index.html" class="back-link">← Назад к карте</a>
 
     <section>
-      <p>Основанный в 1857 году как Санкт-Петербургский металлический завод, ЛМЗ стал ведущим производителем энергетического оборудования, корабельных орудий и турбин в России.</p>
+      <p>Ленинградский металлический завод (ЛМЗ, ранее — Ленинградский металлический завод имени И. В. Сталина) основан в 1857 году как «Компания Санкт-Петербургского металлического завода» купцом С. Н. Растеряевым. Сегодня специализируется на проектировании, изготовлении и обслуживании паровых, гидравлических и газовых турбин различной мощности.</p>
       <h2>История завода</h2>
       <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
       <div class="timeline" id="timeline">
-        <div class="timeline-item"><strong>1857</strong> — Основание завода купцом С.Н. Растеряевым как "Компания Санкт-Петербургского металлического завода".</div>
-        <div class="timeline-item"><strong>1886</strong> — Первые в России барбетные установки для броненосца «Чесма».</div>
-        <div class="timeline-item"><strong>1907</strong> — Начало выпуска паровых турбин по французской лицензии.</div>
-        <div class="timeline-item"><strong>1924</strong> — Создание первых гидравлических турбин.</div>
-        <div class="timeline-item"><strong>1929</strong> — Заводу присвоено имя Сталина.</div>
-        <div class="timeline-item"><strong>1941-1945</strong> — Производство военной продукции в годы войны.</div>
-        <div class="timeline-item"><strong>1945</strong> — Награждение орденом Ленина.</div>
-        <div class="timeline-item"><strong>1958</strong> — Создание первых газовых турбин.</div>
-        <div class="timeline-item"><strong>1962</strong> — Переименование в честь XXII съезда КПСС.</div>
-        <div class="timeline-item"><strong>1990-е</strong> — Преобразование в АО, вхождение в "Силовые машины".</div>
-        <div class="timeline-item"><strong>2007</strong> — Празднование 150-летия завода.</div>
+        <div class="timeline-item"><strong>1857</strong> — Устав «Компании Санкт-Петербургского металлического завода» утверждён 20 декабря; основан завод как кустарная мастерская по производству котлов и отопительных приборов.</div>
+        <div class="timeline-item"><strong>1867</strong> — Завод возглавил Отто Крель; наладили выпуск котлов, отопительных приборов, металлоконструкций, подъёмных кранов, мостов и плавучих доков.</div>
+        <div class="timeline-item"><strong>1886</strong> — Завод впервые в России изготовил барбетные установки для броненосца «Чесма», позднее освоил башенные установки с электрическим приводом.</div>
+        <div class="timeline-item"><strong>1890-е</strong> — На заводе появился Н. Д. Лесенко, инициировавший обрусение управления и развитие производства.</div>
+        <div class="timeline-item"><strong>1907</strong> — Начат выпуск паровых турбин («М-3») на базе доработки турбин системы Рато.</div>
+        <div class="timeline-item"><strong>1917–1924</strong> — После революции завод перешёл на выпуск гидравлических турбин (1924) и обеспечил выполнение значительной части плана ГОЭЛРО.</div>
+        <div class="timeline-item"><strong>1929</strong> — Заводу присвоено имя И. В. Сталина; создан ВТУЗ при заводе (1930) и выпущены первые специалисты (1932).</div>
+        <div class="timeline-item"><strong>1930-е</strong> — Освоены выпуск газовых турбин (1958), основана школа конструкторов.</div>
+        <div class="timeline-item"><strong>1941–1945</strong> — Во время Великой Отечественной войны завод под руководством Е. Н. Шефтера наладил выпуск противогазов, фонарей, гильзовых патронов; эвакуирован частично, работал в тылу и на фронте; в 1942 г., несмотря на разрушения, награждён орденом Трудового Красного Знамени.</div>
+        <div class="timeline-item"><strong>1962</strong> — Постановлением Совета Министров снято имя Сталина; завод стал «Ленинградским металлическим заводом имени XXII съезда КПСС».</div>
+        <div class="timeline-item"><strong>1967</strong> — В здании заводоуправления открыт Музей истории ЛМЗ (народный музей с 1984 г.).</div>
+        <div class="timeline-item"><strong>1990-е</strong> — Завод акционирован, вошёл в АО «Силовые машины».</div>
       </div>
     </section>
 
     <section>
-      <h2>Производство</h2>
-      <div class="gallery">
-        <figure>
-          <img src="../img/lmz_photos/history-about-item-1.jpeg" alt="Старое фото завода" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Старое фото завода</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/lmz_photos/history-about-item-2.jpeg" alt="Выпуск паровых турбин" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Производство паровых турбин</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/lmz_photos/history-about-item-3.jpeg" alt="Барбетная установка броненосца Император Александр II" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Барбетная установка броненосца</figcaption>
-        </figure>
+      <h2>Архитектура и расположение</h2>
+      <div class="historical-fact">
+        <strong>Адрес:</strong> Свердловская набережная, 18, Калининский район, Санкт-Петербург.
       </div>
       <div class="historical-fact">
-        <p>Завод начинал с производства котлов и отопительных приборов, но уже в 1886 году изготовил первые в России барбетные установки для броненосцев.</p>
+        <strong>Расположение</strong><br>
+        Завод расположен на правом берегу Невы, на Выборгской стороне, вблизи станции метро «Площадь Ленина». Комплекс включает корпус администрации XIX века и несколько современных цехов турбинного и котельного производств.
       </div>
+      <p>Территория ЛМЗ сочетает исторические кирпичные корпуса и современные производствоэнергетические корпуса. В 1967 г. в здании заводоуправления открылся музей, сохраняя память о технике и людях завода.</p>
     </section>
 
     <section>
-      <h2>Достижения и награды</h2>
+      <h2>Продукция</h2>
       <div class="gallery">
         <figure>
-          <img src="../img/lmz_photos/history-about-decoration-1.png" alt="Орден Ленина (1945)" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Орден Ленина, 1945 г.</figcaption>
+          <img src="../img/lmz_photos/steam_turbine.jpg" alt="Паровая турбина ЛМЗ" />
+          <figcaption>Паровая турбина «М-3» (1907 г.)</figcaption>
         </figure>
         <figure>
-          <img src="../img/lmz_photos/ak.jpeg" alt="Акция завода 1894 года" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Акция завода, 1894 г.</figcaption>
+          <img src="../img/lmz_photos/hydro_turbine.jpg" alt="Гидравлическая турбина ЛМЗ" />
+          <figcaption>Гидравлическая турбина (с 1924 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lmz_photos/gas_turbine.jpg" alt="Газовая турбина ЛМЗ" />
+          <figcaption>Газовая турбина (с 1958 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/lmz_photos/industrial_boiler.jpg" alt="Промышленный котёл ЛМЗ" />
+          <figcaption>Промышленный котёл (XIX в.)</figcaption>
         </figure>
       </div>
-      <div class="historical-fact">
-        <p>В 1945 году завод был награжден орденом Ленина - высшей наградой СССР за выдающиеся заслуги перед государством.</p>
-      </div>
+      <ul>
+        <li>Паровые турбины различных типов (с 1907 г.)</li>
+        <li>Гидравлические турбины (с 1924 г.)</li>
+        <li>Газовые турбины (с 1958 г.)</li>
+        <li>Промышленные котлы и отопительные приборы (с 1857 г.)</li>
+        <li>Металлоконструкции, подъёмные краны и мосты (XIX в.)</li>
+        <li>Производство и ремонт оборудования для энергетики и промышленности</li>
+      </ul>
     </section>
 
     <section>
       <h2>Современное состояние</h2>
       <div class="gallery">
         <figure>
-          <img src="../img/lmz_photos/ghjkl.jpeg" alt="Здание ЛМЗ на Неве" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Здание завода на Неве</figcaption>
-        </figure>
-        <figure>
-          <img src="../img/lmz_photos/logo.jpeg" alt="Логотип завода" onclick="showFullImg(this.src, this.alt)" />
-          <figcaption>Современный логотип</figcaption>
+          <img src="../img/lmz_photos/lmz_now.jpg" alt="Современный вид ЛМЗ" />
+          <figcaption>Современный вид ЛМЗ</figcaption>
         </figure>
       </div>
-      <p>Адрес: г. Санкт-Петербург, ул. Ватутина, 3</p>
-      <p>Современное название: АО "Ленинградский Металлический завод" (в составе "Силовые машины")</p>
-      <p>Основная продукция:</p>
-      <ul>
-        <li>Паровые и газовые турбины</li>
-        <li>Гидротурбины</li>
-        <li>Энергетическое оборудование</li>
-        <li>Металлоконструкции</li>
-      </ul>
-      <div class="historical-fact">
-        <p>В 1967 году в здании заводоуправления был открыт Музей истории завода, получивший в 1984 году звание "Народный музей".</p>
-      </div>
+      <p>Сегодня ЛМЗ входит в состав АО «Силовые машины» и специализируется на проектировании, изготовлении и сервисном обслуживании турбин и котлов для энергетических станций. Завод продолжает развивать линейки газовых и гидравлических турбин, а также участвует в модернизации энергетического оборудования России.</p>
+      <p>В 1967 г. открыт Народный музей истории завода, где сохраняются экспонаты из производственных архивов и макеты турбин прошлых эпох. </p>
     </section>
-  </div>
 
-  <div id="fullImgContainer" class="full-img-container">
-    <span class="close-full-img" onclick="hideFullImg()">&times;</span>
-    <img id="fullImg" class="full-img" src="" alt="">
-    <div id="fullImgCaption" class="img-caption"></div>
+    <section>
+      <h2>Факты и достижения</h2>
+      <ul>
+        <li>Основан в 1857 г. как «Компания Санкт-Петербургского металлического завода». </li>
+        <li>В 1907 г. выпущена первая отечественная модифицированная турбина «М-3» по системе Рато. </li>
+        <li>В годы ВОВ завод переориентировался на выпуск оборонной продукции и получил орден Трудового Красного Знамени (1942 г.).</li>
+        <li>С 1924 г. освоен выпуск гидравлических турбин, с 1958 г. — газовых турбин.</li>
+        <li>В 1967 г. создан Народный музей ЛМЗ, действующий по сей день.</li>
+        <li>В 1990-е годы вошёл в состав АО «Силовые машины» и стал одним из ключевых предприятий энергетического машиностроения России.</li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
   </div>
 
   <footer>
-    <p>&copy; 2025 Проект "Индустриальный Петербург"</p>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
     <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
     <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
   </footer>
@@ -302,29 +265,6 @@
       const timeline = document.getElementById("timeline");
       timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
     }
-
-    function showFullImg(src, alt) {
-      const fullImgContainer = document.getElementById('fullImgContainer');
-      const fullImg = document.getElementById('fullImg');
-      const fullImgCaption = document.getElementById('fullImgCaption');
-      
-      fullImg.src = src;
-      fullImg.alt = alt;
-      fullImgCaption.textContent = alt;
-      fullImgContainer.style.display = 'flex';
-      document.body.style.overflow = 'hidden';
-    }
-
-    function hideFullImg() {
-      document.getElementById('fullImgContainer').style.display = 'none';
-      document.body.style.overflow = '';
-    }
-
-    document.getElementById('fullImgContainer').addEventListener('click', function(e) {
-      if (e.target === this) {
-        hideFullImg();
-      }
-    });
   </script>
 </body>
 </html>
