@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Завод «Пигмент» | Индустриальный Петербург</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      line-height: 1.6;
+      color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('../img/pigment_photos/pigment_header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 15px;
+      margin: 2em 0;
+    }
+    .gallery figure {
+      margin: 0;
+    }
+    .gallery img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+    .gallery figcaption {
+      text-align: center;
+      font-size: 14px;
+      margin-top: 5px;
+      color: #555;
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .historical-fact {
+      background: #f5f5f5;
+      padding: 15px;
+      border-radius: 5px;
+      margin: 15px 0;
+      border-left: 3px solid #e74c3c;
+    }
+    ul {
+      padding-left: 1.2em;
+    }
+    ul li {
+      margin-bottom: 0.5em;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>Завод «Пигмент»</h1>
+    <p>Научно-производственное объединение лакокрасочной и химической продукции</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <p>НПО «Пигмент» образовано в 1976 г., объединило НИПК с лакокрасочными заводами города. История берёт начало от Киновиевского ультрамаринового завода доктора Г. И. Веге (основан в 1876 г.), который после национализации в 1920 г. несколько раз менял название и формально вошёл в структуру Невского химического завода с 1 декабря 1954 г. (как «Республика»). Сегодня «Пигмент» выпускает свыше 1500 наименований продукции.</p>
+      <h2>История завода</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">Показать / скрыть хронологию</button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1876</strong> — Георгий Иванович Веге основывает Киновиевский ультрамариновый завод на правом берегу Большой Невы (дом завода № 78) :contentReference[oaicite:1]{index=1}.</div>
+        <div class="timeline-item"><strong>1882</strong> — Завод Веге награждён бронзовым кубком за «ультрамарин порядочного качества» на Всероссийской выставке :contentReference[oaicite:2]{index=2}.</div>
+        <div class="timeline-item"><strong>1896</strong> — На Всероссийской Промышленно-Художественной выставке в Нижнем Новгороде завод Веге получает Государственный герб за качество и объёмы производства :contentReference[oaicite:3]{index=3}.</div>
+        <div class="timeline-item"><strong>1912</strong> — После смерти Г. И. Веге завод переходит к сыну Р. Г. Веге, затем к банкирскому дому «Цельтнер, Леверкуз и Ко» (1914), и наконец — к акционерному обществу «Киновиевский ультрамариновый завод д-ра Г. И. Веге» (1916).</div>
+        <div class="timeline-item"><strong>1918</strong> — Национализация всех химических предприятий, завод передан в ведение Химсекции ПСНХ.</div>
+        <div class="timeline-item"><strong>1920</strong> — Завод переименован в Государственный Киновиевский ультрамариновый завод «Республика» Ленинградского областного красочного треста.</div>
+        <div class="timeline-item"><strong>1931</strong> — «Республика» входит в состав Всесоюзного треста лакокрасочной промышленности «Лакокраска» (НКП СССР).</div>
+        <div class="timeline-item"><strong>1934</strong> — Завод официально функционирует как цех Невского химического завода (ф. 6367), выпускает суперфосфат, серную кислоту, ультрамарин и другие химические продукты.</div>
+        <div class="timeline-item"><strong>1954 (1 декабря)</strong> — Решением Министерства химической промышленности завод «Республика» передан в состав Невского химического завода (лит. «Пигмент») на правах цеха :contentReference[oaicite:4]{index=4}.</div>
+        <div class="timeline-item"><strong>1960-е</strong> — Невский химический завод становится головным предприятием НПО «Пигмент»; в 1962 г. внедрены новые производства: нефелиновый коагулянт, кремнефтористый натрий, очищенный глинозём и квасцы.</div>
+        <div class="timeline-item"><strong>1976</strong> — Официальное создание Научно-производственного объединения «Пигмент», включающего НИПК, несколько лакокрасочных и химзаводов города :contentReference[oaicite:5]{index=5}.</div>
+        <div class="timeline-item"><strong>1993</strong> — Реорганизован в ОАО «Научно-производственная фирма „Пигмент“».</div>
+        <div class="timeline-item"><strong>2000-е</strong> — Расширен ассортимент до 1500+ наименований: суперфосфат, нефелиновый коагулянт, серная кислота, ультрамарин, кремнефтористый натрий, очищенный глинозём, квасцы, краски и лаки.</div>
+        <div class="timeline-item"><strong>2018–2020</strong> — Setl Group приобретает территорию «Пигмента», проводит противоаварийные работы в особняке Веге и производственном корпусе, разрабатывает проекты полной реставрации и реконструкции зданий под офисы и магазины.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Архитектура и расположение</h2>
+      <div class="historical-fact">
+        <strong>Адрес:</strong> Октябрьская набережная, 38, лит. БЗ, Невский район, Санкт-Петербург, 193091 :contentReference[oaicite:6]{index=6}.
+      </div>
+      <div class="historical-fact">
+        <strong>Производственное здание:</strong> Кирпичный корпус ультрамаринового завода с высокой дымовой трубой (лит. АН), выявленный объект культурного наследия (Приказ КГИОП № 15 от 20.02.2001) :contentReference[oaicite:7]{index=7}.
+      </div>
+      <div class="historical-fact">
+        <strong>Особняк Веге:</strong> Двухэтажный дом с богатой лепниной, кариатидами, настенными росписями и монументальными витражами (конец XIX в., эклектика), региональный памятник архитектуры (Ф. Р-5206). С 1999 г. охраняется как выявленный объект, сейчас проходит реставрацию Setl Group :contentReference[oaicite:8]{index=8}.
+      </div>
+      <p>Комплекс расположен на правом берегу Большой Невы, напротив Петропавловской крепости. Сохранились производственные корпуса 1890–1930 гг., кирпичные стены ультрамаринового цеха с металлическими сводами на заклёпках и конструкциями, уникальные витражи из мастерской Э. Ф. Тоде (или немецкое производство), демонтированные и хранящиеся, а также оригинальная трёхмаршевая лестница с лепниной и зеркалами.</p>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <div class="gallery">
+        <figure>
+          <img src="../img/pigment_photos/ultramarine_old_1996.jpg" alt="Ультрамариновый цех (1996)" />
+          <figcaption>Ультрамариновый цех (1996 г.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/pigment_photos/vege_manor.jpg" alt="Особняк Веге, фасад" />
+          <figcaption>Особняк Г. И. Веге (конец XIX в.)</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/pigment_photos/production_building.jpg" alt="Производственный корпус с трубой" />
+          <figcaption>Производственный корпус с дымоходом</figcaption>
+        </figure>
+        <figure>
+          <img src="../img/pigment_photos/pigment_now.jpg" alt="Современный вид завода «Пигмент»" />
+          <figcaption>Современный вид «Пигмента»</figcaption>
+        </figure>
+      </div>
+      <ul>
+        <li>Ультрамарин (производство до 1917 г., возрождён в сер. XX в.)</li>
+        <li>Серная кислота (с 1935 г.)</li>
+        <li>Суперфосфат (с 1931 г.)</li>
+        <li>Нефелиновый коагулянт (с 1960 г.)</li>
+        <li>Кремнефтористый натрий (с 1960 г.)</li>
+        <li>Очищенный глинозём (с 1960 г.)</li>
+        <li>Квасцы (с 1960 г.)</li>
+        <li>Лакокрасочная продукция (более 1500 наименований: краски, лаки, эмали)</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Современное состояние</h2>
+      <div class="historical-fact">
+        <strong>Территория:</strong> Принадлежит ООО «Сэтл сити» (Setl Group). Проводятся реставрация и реконструкция особняка Веге и производственного корпуса для размещения офисов, магазинов и фитнес-центра :contentReference[oaicite:9]{index=9}.
+      </div>
+      <p>После передачи Setl Group территория участвует в проекте «Правый берег» по созданию жилого квартала. Производственные корпуса адаптируются под бизнес-центр: фасады восстанавливаются в исторических габаритах, дымовая труба сохраняется, советская вывеска «Пигмент» консервации. Противоаварийные и консервационные работы завершены в 2019 г., основная реставрация займёт 2–3 года.</p>
+    </section>
+
+    <section>
+      <h2>Факты и достижения</h2>
+      <ul>
+        <li>Первый и единственный в России ультрамариновый завод (основан 1876 г. Веге); выпускал свыше 50 000 пуд. ультрамарина в год (до 1917 г.) :contentReference[oaicite:10]{index=10}.</li>
+        <li>Завод Веге награждён Государственным гербом на Нижегородской выставке 1896 г. (высшая награда за качество).</li>
+        <li>После 1918 г. ультрамариновое производство вошло в состав лакокрасочного треста «Красочное дело».</li>
+        <li>В 1934 г. преобразован в цех Невского химического завода (№ 6367), выпускающего суперфосфат, серную кислоту, ультрамарин.</li>
+        <li>В 1960-е выступал головным предприятием НПО «Пигмент»; освоены новые химические производства.</li>
+        <li>В 1976 г. создано НПО «Пигмент», объединяющее НИПК и лако-красковые заводы Ленинграда.</li>
+        <li>Ассортимент составляет более 1500 наименований (краски, эмали, химпрепараты).</li>
+        <li>В 2018 г. Setl Group начала реставрацию особняка Веге и производственного корпуса в границах новой жилой застройки.</li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+    <p>Выполнили: Рожкова Полина Борисовна и Галибина Ксения Александровна</p>
+    <p>Студентки 1 курса, группы V3145 (ИНТ4.1 и ИНТ4.3)</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const triggerBottom = window.innerHeight * 0.8;
+      sections.forEach(section => {
+        const sectionTop = section.getBoundingClientRect().top;
+        if (sectionTop < triggerBottom) {
+          section.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById("scrollTopBtn");
+    window.onscroll = function() {
+      if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        scrollBtn.style.display = "block";
+      } else {
+        scrollBtn.style.display = "none";
+      }
+    };
+    scrollBtn.onclick = function() {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    };
+
+    function toggleTimeline() {
+      const timeline = document.getElementById("timeline");
+      timeline.style.display = (timeline.style.display === "none" || timeline.style.display === "") ? "flex" : "none";
+    }
+  </script>
+</body>
+</html>
