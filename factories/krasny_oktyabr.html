@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>СПб ОАО «Красный Октябрь» | Индустриальный Петербург</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=PT+Sans+Caption:wght@700&display=swap"
+    rel="stylesheet"
+  />
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0; padding: 0;
+      line-height: 1.6; color: #333;
+    }
+    .factory-header {
+      background: linear-gradient(
+          rgba(0,0,0,0.7),
+          rgba(0,0,0,0.7)
+        ),
+        url('../img/krasny_oktyabr_photos/header.jpg');
+      color: white;
+      padding: 4em 1em;
+      text-align: center;
+      background-size: cover;
+      background-position: center;
+    }
+    h1, h2 {
+      font-family: 'PT Sans Caption', sans-serif;
+      margin-bottom: 0.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: 2em auto;
+      padding: 0 1em;
+    }
+    .toggle-timeline {
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-size: 16px;
+      cursor: pointer;
+      border-radius: 5px;
+      margin-bottom: 1em;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .timeline {
+      display: none;
+      flex-direction: column;
+      gap: 15px;
+      border-left: 3px solid #e74c3c;
+      padding-left: 1em;
+      margin-bottom: 2em;
+    }
+    .timeline-item {
+      padding-left: 1em;
+    }
+    section {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      margin-bottom: 2em;
+    }
+    section.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .back-link {
+      display: inline-block;
+      margin: 2em 0;
+      color: #e74c3c;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    footer {
+      background: #2c3e50;
+      color: white;
+      text-align: center;
+      padding: 1em;
+      margin-top: 2em;
+    }
+    #scrollTopBtn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 100;
+      background-color: #e74c3c;
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      font-size: 24px;
+      cursor: pointer;
+      display: none;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+      transition: opacity 0.3s ease-in-out;
+    }
+  </style>
+</head>
+<body>
+  <header class="factory-header">
+    <h1>СПб ОАО «Красный Октябрь»</h1>
+    <p>Производство и ремонт силовых агрегатов для вертолётов и авиационных двигателей</p>
+  </header>
+
+  <div class="container">
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+
+    <section>
+      <h2>О заводе</h2>
+      <p>
+        Основан в 1891 г. как Электротехнический завод «В. Савельев и Ко». 
+        Специализируется на выпуске и ремонте силовых агрегатов для вертолётов «Миль» и «Камов», коробок самолётных агрегатов (КСА), газотурбинных двигателей и турбостартёров для самолётов «МиГ» и «Су».
+      </p>
+    </section>
+
+    <section>
+      <h2>История</h2>
+      <button class="toggle-timeline" onclick="toggleTimeline()">
+        Показать / скрыть хронологию
+      </button>
+      <div class="timeline" id="timeline">
+        <div class="timeline-item"><strong>1891</strong> — Основан завод «В. Савельев и Ко».</div>
+        <div class="timeline-item"><strong>1905</strong> — Переезд в Нарвскую заставу, ул. Ушаковская.</div>
+        <div class="timeline-item"><strong>1915</strong> — Запуск оборонного производства (детонаторы и запалы).</div>
+        <div class="timeline-item"><strong>1919</strong> — Национализация, передача «Петрогубэлектро».</div>
+        <div class="timeline-item"><strong>1925</strong> — Переименован в «Красный Октябрь» (5 сентября).</div>
+        <div class="timeline-item"><strong>1927</strong> — Слияние с мотоциклетным заводом «Русский Рено».</div>
+        <div class="timeline-item"><strong>1932</strong> — Старт выпуска агрегатов для танков Т-26.</div>
+        <div class="timeline-item"><strong>1940</strong> — Подготовка к производству двигателей М-105.</div>
+        <div class="timeline-item"><strong>1941</strong> — Эвакуация в Уфу, выпуск 10 000+ М-105.</div>
+        <div class="timeline-item"><strong>1946</strong> — Открыто КБ под руководством В. Я. Климова.</div>
+        <div class="timeline-item"><strong>1952</strong> — Освоение агрегатов для вертолётов Ми-1, Ми-4 и Як-24.</div>
+        <div class="timeline-item"><strong>1956</strong> — Начало разработки ЖРД под А. С. Мевиусом.</div>
+        <div class="timeline-item"><strong>1960</strong> — Двигатель В-1000 для перехвата Р-12.</div>
+        <div class="timeline-item"><strong>1970–82</strong> — Серийный выпуск КСА и ГТДЭ для МиГ-29 и Су-27.</div>
+        <div class="timeline-item"><strong>1985</strong> — Мотоагрегаты «Нева» и навесное оборудование.</div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Продукция</h2>
+      <ul>
+        <li>Силовые агрегаты для вертолётов «Миль» и «Камов»</li>
+        <li>Коробки самолётных агрегатов (КСА) для МиГ-29, Су-27 и модификаций</li>
+        <li>Газотурбинные двигатели и турбостартеры для самолётов</li>
+        <li>Реактивные двигатели и ЖРД для ракетных комплексов</li>
+        <li>Мотоблоки «Нева» и мототехника серии «Д»</li>
+      </ul>
+    </section>
+
+    <a href="../index.html" class="back-link">← Назад к карте</a>
+  </div>
+
+  <footer>
+    <p>&copy; 2025 Проект «Индустриальный Петербург»</p>
+  </footer>
+
+  <button id="scrollTopBtn" title="Наверх">↑</button>
+
+  <script>
+    const sections = document.querySelectorAll('section');
+    function checkSections() {
+      const trigger = window.innerHeight * 0.8;
+      sections.forEach(s => {
+        if (s.getBoundingClientRect().top < trigger) {
+          s.classList.add('visible');
+        }
+      });
+    }
+    window.addEventListener('scroll', checkSections);
+    window.addEventListener('load', checkSections);
+
+    const scrollBtn = document.getElementById('scrollTopBtn');
+    window.onscroll = () => scrollBtn.style.display = window.scrollY > 300 ? 'block' : 'none';
+    scrollBtn.onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });
+
+    function toggleTimeline() {
+      const tl = document.getElementById('timeline');
+      tl.style.display = tl.style.display === 'flex' ? 'none' : 'flex';
+    }
+  </script>
+</body>
+</html>
